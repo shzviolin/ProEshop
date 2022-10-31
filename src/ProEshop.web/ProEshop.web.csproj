@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Pages\Identity\LoginWithPhoneNumber.cshtml.js" />
+    <None Remove="Pages\Identity\RegisterLogin.cshtml.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Pages\Identity\LoginWithPhoneNumber.cshtml.js" />
+    <Content Include="Pages\Identity\RegisterLogin.cshtml.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProEshop.Common\ProEshop.Common.csproj" />
+    <ProjectReference Include="..\ProEshop.DataLayer\ProEshop.DataLayer.csproj" />
+    <ProjectReference Include="..\ProEshop.Entities\ProEshop.Entities.csproj" />
+    <ProjectReference Include="..\ProEshop.IocConfig\ProEshop.IocConfig.csproj" />
+    <ProjectReference Include="..\ProEshop.Services\ProEshop.Services.csproj" />
+    <ProjectReference Include="..\ProEshop.ViewModels\ProEshop.ViewModels.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\application\" />
+    <Folder Include="wwwroot\lib\" />
+  </ItemGroup>
+
+</Project>

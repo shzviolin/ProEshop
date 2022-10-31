@@ -1,0 +1,12 @@
+D:\My Projects\ProEShop\src\ProEshop.Common\bin\Debug\net6.0\ProEshop.Common.deps.json
+D:\My Projects\ProEShop\src\ProEshop.Common\bin\Debug\net6.0\ProEshop.Common.dll
+D:\My Projects\ProEShop\src\ProEshop.Common\bin\Debug\net6.0\ProEshop.Common.pdb
+D:\My Projects\ProEShop\src\ProEshop.Common\obj\Debug\net6.0\ProEshop.Common.csproj.AssemblyReference.cache
+D:\My Projects\ProEShop\src\ProEshop.Common\obj\Debug\net6.0\ProEshop.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\My Projects\ProEShop\src\ProEshop.Common\obj\Debug\net6.0\ProEshop.Common.AssemblyInfoInputs.cache
+D:\My Projects\ProEShop\src\ProEshop.Common\obj\Debug\net6.0\ProEshop.Common.AssemblyInfo.cs
+D:\My Projects\ProEShop\src\ProEshop.Common\obj\Debug\net6.0\ProEshop.Common.csproj.CoreCompileInputs.cache
+D:\My Projects\ProEShop\src\ProEshop.Common\obj\Debug\net6.0\ProEshop.Common.dll
+D:\My Projects\ProEShop\src\ProEshop.Common\obj\Debug\net6.0\refint\ProEshop.Common.dll
+D:\My Projects\ProEShop\src\ProEshop.Common\obj\Debug\net6.0\ProEshop.Common.pdb
+D:\My Projects\ProEShop\src\ProEshop.Common\obj\Debug\net6.0\ref\ProEshop.Common.dll

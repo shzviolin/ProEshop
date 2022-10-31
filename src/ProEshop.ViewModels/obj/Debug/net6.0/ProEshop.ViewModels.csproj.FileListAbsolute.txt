@@ -1,0 +1,15 @@
+D:\My Projects\ProEShop\src\ProEshop.ViewModels\bin\Debug\net6.0\ProEshop.ViewModels.deps.json
+D:\My Projects\ProEShop\src\ProEshop.ViewModels\bin\Debug\net6.0\ProEshop.ViewModels.dll
+D:\My Projects\ProEShop\src\ProEshop.ViewModels\bin\Debug\net6.0\ProEshop.ViewModels.pdb
+D:\My Projects\ProEShop\src\ProEshop.ViewModels\obj\Debug\net6.0\ProEshop.ViewModels.csproj.AssemblyReference.cache
+D:\My Projects\ProEShop\src\ProEshop.ViewModels\obj\Debug\net6.0\ProEshop.ViewModels.GeneratedMSBuildEditorConfig.editorconfig
+D:\My Projects\ProEShop\src\ProEshop.ViewModels\obj\Debug\net6.0\ProEshop.ViewModels.AssemblyInfoInputs.cache
+D:\My Projects\ProEShop\src\ProEshop.ViewModels\obj\Debug\net6.0\ProEshop.ViewModels.AssemblyInfo.cs
+D:\My Projects\ProEShop\src\ProEshop.ViewModels\obj\Debug\net6.0\ProEshop.ViewModels.csproj.CoreCompileInputs.cache
+D:\My Projects\ProEShop\src\ProEshop.ViewModels\obj\Debug\net6.0\ProEshop.ViewModels.dll
+D:\My Projects\ProEShop\src\ProEshop.ViewModels\obj\Debug\net6.0\refint\ProEshop.ViewModels.dll
+D:\My Projects\ProEShop\src\ProEshop.ViewModels\obj\Debug\net6.0\ProEshop.ViewModels.pdb
+D:\My Projects\ProEShop\src\ProEshop.ViewModels\obj\Debug\net6.0\ref\ProEshop.ViewModels.dll
+D:\My Projects\ProEShop\src\ProEshop.ViewModels\bin\Debug\net6.0\ProEshop.Common.dll
+D:\My Projects\ProEShop\src\ProEshop.ViewModels\bin\Debug\net6.0\ProEshop.Common.pdb
+D:\My Projects\ProEShop\src\ProEshop.ViewModels\obj\Debug\net6.0\ProEshop.ViewModels.csproj.CopyComplete
