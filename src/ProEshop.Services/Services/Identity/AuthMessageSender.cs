@@ -29,8 +29,8 @@ public class AuthMessageSender : ISmsSender
     public async Task<bool> SendSmsAsync(string number, string message)
     {
         var token = await GetToken();
-        var line = await GetLineToSendAsync(token);
-        return await Send(token, message, number, line);
+        var lineToSend = await GetLineToSendAsync(token);
+        return await Send(token, message, number, lineToSend);
 
     }
 
