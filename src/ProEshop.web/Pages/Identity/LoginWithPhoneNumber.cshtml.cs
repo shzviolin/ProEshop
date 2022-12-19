@@ -75,9 +75,9 @@ public class LoginWithPhoneNumberModel : PageModel
         return RedirectToPage("/Test");
     }
 
-    public async Task<IActionResult> OnPostSendUserSmsActivationAsync(string phoneNumber)
+    public async Task<IActionResult> OnPostReSendUserSmsActivationAsync(string phoneNumber)
     {
-        System.Threading.Thread.Sleep(2000);
+        //System.Threading.Thread.Sleep(2000);
         var user = await _userManager.FindByNameAsync(phoneNumber);
         if (user is null)
             return new JsonResult(new JsonResultOperation(false));
