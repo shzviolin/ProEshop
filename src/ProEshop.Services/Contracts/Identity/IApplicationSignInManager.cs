@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
-using ProEshop.Entities.Identity;
+using ProEShop.Entities.Identity;
 using System.Security.Claims;
 
-namespace ProEshop.Services.Contracts.Identity;
+namespace ProEShop.Services.Contracts.Identity;
 
 public interface IApplicationSignInManager
 {

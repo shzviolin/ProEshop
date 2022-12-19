@@ -1,18 +1,17 @@
-﻿
-using Microsoft.EntityFrameworkCore;
-using ProEshop.DataLayer.Context;
-using ProEshop.Entities;
-using ProEshop.Services.Contracts;
+﻿using Microsoft.EntityFrameworkCore;
+using ProEShop.DataLayer.Context;
+using ProEShop.Entities;
+using ProEShop.Services.Contracts;
 
-namespace ProEshop.Services.Services;
+namespace ProEShop.Services.Services;
 
 public class CategoryService : GenericService<Category>, ICategoryService
 {
     private readonly DbSet<Category> _categories;
-
-    public CategoryService(IUnitOfWork unitOfWork) : base(unitOfWork)
+    public CategoryService(IUnitOfWork uow)
+        : base(uow)
     {
-        _categories = unitOfWork.Set<Category>();
+        _categories = uow.Set<Category>();
     }
 
     public Task<List<Category>> GetAll()

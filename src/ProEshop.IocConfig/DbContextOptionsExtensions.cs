@@ -1,22 +1,23 @@
 ﻿using DNTCommon.Web.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using ProEshop.Common.GuardToolkit;
-using ProEshop.Common.PersianToolkit;
-using ProEshop.DataLayer.Context;
-using ProEshop.Services.Contracts.Identity;
-using ProEshop.ViewModels.Identity.Settings;
+using ProEShop.Common.GuardToolkit;
+using ProEShop.Common.PersianToolkit;
+using ProEShop.DataLayer.Context;
+using ProEShop.Services.Contracts.Identity;
+using ProEShop.ViewModels.Identity.Settings;
 
-namespace ProEshop.IocConfig;
+namespace ProEShop.IocConfig;
 
 public static class DbContextOptionsExtensions
 {
-    public static IServiceCollection AddConfiguredDbContext(this IServiceCollection services, SiteSettings siteSettings)
+    public static IServiceCollection AddConfiguredDbContext(
+        this IServiceCollection services, SiteSettings siteSettings)
     {
         siteSettings.CheckArgumentIsNull(nameof(siteSettings));
         var connectionString = siteSettings.ConnectionStrings.ApplicationDbContextConnection;
-        //دسترسی داشته باشیم ApplicationDbContext برای این است که در طول یک درخواست فقط یک نسخه از  AddScoped
-        services.AddScoped<IUnitOfWork>(serviceProvider => serviceProvider.GetRequiredService<ApplicationDbContext>());
+        services.AddScoped<IUnitOfWork>(serviceProvider =>
+            serviceProvider.GetRequiredService<ApplicationDbContext>());
         // We use `AddDbContextPool` instead of AddDbContext because it's faster
         services.AddDbContextPool<ApplicationDbContext>(options =>
         {
@@ -26,19 +27,21 @@ public static class DbContextOptionsExtensions
         return services;
     }
 
+    /// <summary>
+    /// Creates and seeds the database.
+    /// </summary>
     public static void InitializeDb(this IServiceProvider serviceProvider)
     {
         //using (var serviceScope = serviceProvider.GetRequiredService<IServiceScopeFactory>().CreateScope())
         //{
-        //    var context=serviceScope.ServiceProvider.GetRequiredService<IIdentityDbInitializer>();
+        //    var context = serviceScope.ServiceProvider.GetRequiredService<IIdentityDbInitializer>();
         //    context.Initialize();
         //    context.SeedData();
         //}
-
-        serviceProvider.RunScopedService<IIdentityDbInitializer>(identityDbInitializer =>
+        serviceProvider.RunScopedService<IIdentityDbInitializer>(identityDbInitialize =>
         {
-            identityDbInitializer.Initialize();
-            identityDbInitializer.SeedData();
+            identityDbInitialize.Initialize();
+            identityDbInitialize.SeedData();
         });
     }
 }

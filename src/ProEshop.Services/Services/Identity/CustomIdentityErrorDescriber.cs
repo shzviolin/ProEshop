@@ -1,11 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
+namespace ProEShop.Services.Services.Identity;
 
-namespace ProEshop.Services.Services.Identity;
-
-/// <summary>
-/// را فارسی کرده ایم Identity در این کلاس متن خطاهای سیستم 
-/// </summary>
 public class CustomIdentityErrorDescriber : IdentityErrorDescriber
 {
     public override IdentityError ConcurrencyFailure()

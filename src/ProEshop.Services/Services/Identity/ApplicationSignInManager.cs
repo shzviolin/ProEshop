@@ -3,14 +3,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using ProEshop.Entities.Identity;
-using ProEshop.Services.Contracts.Identity;
+using ProEShop.Entities.Identity;
+using ProEShop.Services.Contracts.Identity;
 
+namespace ProEShop.Services.Services.Identity;
 
-namespace ProEshop.Services.Services.Identity;
-/// <summary>
-/// بستری را در اختیار ما قرار میدهد که عملیات لاگین کاربران را با آن انجام دهیم
-/// </summary>
 public class ApplicationSignInManager
     : SignInManager<User>, IApplicationSignInManager
 {
@@ -26,4 +23,8 @@ public class ApplicationSignInManager
             contextAccessor, claimsFactory, optionsAccessor, logger, schemes, confirmation)
     {
     }
+
+    #region CustomClass
+
+    #endregion
 }

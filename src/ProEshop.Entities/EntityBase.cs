@@ -1,4 +1,4 @@
-﻿namespace ProEshop.Entities;
+﻿namespace ProEShop.Entities;
 
 public abstract class EntityBase
 {

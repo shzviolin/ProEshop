@@ -1,2 +1,2 @@
-dotnet ef database update -s ../ProEshop.Web
+dotnet ef database update -s ../ProEShop.Web
 pause

@@ -1,6 +1,6 @@
-﻿using ProEshop.Entities;
+﻿using ProEShop.Entities;
 
-namespace ProEshop.Services.Contracts;
+namespace ProEShop.Services.Contracts;
 
 public interface ICategoryService : IGenericService<Category>
 {

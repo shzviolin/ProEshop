@@ -1,20 +1,19 @@
-﻿
-using Microsoft.EntityFrameworkCore;
-using ProEshop.DataLayer.Context;
-using ProEshop.Entities;
-using ProEshop.Services.Contracts;
+﻿using Microsoft.EntityFrameworkCore;
+using ProEShop.DataLayer.Context;
+using ProEShop.Entities;
+using ProEShop.Services.Contracts;
 
-namespace ProEshop.Services.Services;
+namespace ProEShop.Services.Services;
 
 public class GenericService<TEntity> : IGenericService<TEntity> where TEntity : EntityBase, new()
 {
-    private readonly IUnitOfWork _unitOfWork;
+    private readonly IUnitOfWork _uow;
     private readonly DbSet<TEntity> _entities;
 
-    public GenericService(IUnitOfWork unitOfWork)
+    public GenericService(IUnitOfWork uow)
     {
-        _unitOfWork = unitOfWork;
-        _entities = unitOfWork.Set<TEntity>();
+        _uow = uow;
+        _entities = uow.Set<TEntity>();
     }
 
     public async Task AddAsync(TEntity entity)
@@ -25,6 +24,7 @@ public class GenericService<TEntity> : IGenericService<TEntity> where TEntity : 
 
     public void Remove(TEntity entity)
         => _entities.Remove(entity);
+
     public void Remove(long id)
     {
         var tEntity = new TEntity();
@@ -32,17 +32,12 @@ public class GenericService<TEntity> : IGenericService<TEntity> where TEntity : 
         if (idProperty is null)
             throw new Exception("The entity doesn't have Id field!");
         idProperty.SetValue(tEntity, id, null);
-        _unitOfWork.MarkAsDeleted(tEntity);
+        _uow.MarkAsDeleted(tEntity);
     }
-
 
     public async Task<TEntity> FindByIdAsync(long id)
         => await _entities.FindAsync(id);
 
-
-    public Task<bool> IsExistByIdAsync(long id)
+    public Task<bool> IsExistsByIdAsync(long id)
         => _entities.AnyAsync(x => x.Id == id);
-
-
-
 }

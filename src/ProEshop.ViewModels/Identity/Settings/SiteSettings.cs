@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace ProEshop.ViewModels.Identity.Settings;
+namespace ProEShop.ViewModels.Identity.Settings;
 
 public class SiteSettings
 {
@@ -14,6 +14,4 @@ public class SiteSettings
     public LockoutOptions LockoutOptions { get; set; }
     public CookieOptions CookieOptions { get; set; }
     public SmsInfo SmsInfo { get; set; }
-
 }
-

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProEshop.Common.Helpers;
+namespace ProEShop.Common.Helpers;
 
 public static class StringHelpers
 {

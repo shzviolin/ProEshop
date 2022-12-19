@@ -1,4 +1,4 @@
-﻿namespace ProEshop.Services.Services.Identity;
+﻿namespace ProEShop.Services.Services.Identity;
 
 public static class ConstantRoles
 {

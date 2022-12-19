@@ -3,11 +3,12 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace ProEshop.Services.Services.Identity;
+namespace ProEShop.Services.Services.Identity;
 
 public class ConfirmEmailDataProtectionTokenProviderOptions : DataProtectionTokenProviderOptions
 {
 }
+
 /// <summary>
 /// How to override the default (1 day) TokenLifeSpan for the email confirmations.
 /// </summary>

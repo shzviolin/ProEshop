@@ -1,4 +1,4 @@
-﻿$(document).ready(function () {
+$(document).ready(function () {
     var win = $(this);
     var mainInputEl = $('#main-search-input');
     if (win.width() > 456) {

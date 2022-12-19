@@ -1,4 +1,4 @@
-﻿namespace ProEshop.ViewModels.Identity.Settings;
+namespace ProEShop.ViewModels.Identity.Settings;
 
 public class ConnectionStrings
 {

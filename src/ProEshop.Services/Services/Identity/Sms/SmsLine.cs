@@ -1,4 +1,4 @@
-﻿namespace ProEshop.Services.Services.Identity.Sms;
+namespace ProEShop.Services.Services.Identity.Sms;
 
 public class SmsLine
 {

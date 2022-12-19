@@ -1,32 +1,34 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using ProEshop.Common.IdentityToolkit;
+using ProEShop.Common.IdentityToolkit;
 
-
-namespace ProEshop.Entities.AuditableEntity;
+namespace ProEShop.Entities.AuditableEntity;
 
 public static class AuditableShadowProperties
 {
     public const string CreatedByBrowserName = nameof(CreatedByBrowserName);
+
     public const string ModifiedByBrowserName = nameof(ModifiedByBrowserName);
 
     public const string CreatedByIp = nameof(CreatedByIp);
+
     public const string ModifiedByIp = nameof(ModifiedByIp);
 
     public const string CreatedByUserId = nameof(CreatedByUserId);
+
     public const string ModifiedByUserId = nameof(ModifiedByUserId);
 
     public const string CreatedDateTime = nameof(CreatedDateTime);
+
     public const string ModifiedDateTime = nameof(ModifiedDateTime);
 
     //Microsoft.EntityFrameworkCore for using Model builder
     public static void AddAuditableShadowProperties(this ModelBuilder modelBuilder)
     {
-        foreach (var entityType in modelBuilder
-                                    .Model
-                                    .GetEntityTypes()
-                                    .Where(e => typeof(IAuditableEntity).IsAssignableFrom(e.ClrType)))
+        foreach (var entityType in modelBuilder.Model
+                                            .GetEntityTypes()
+                                            .Where(e => typeof(IAuditableEntity).IsAssignableFrom(e.ClrType)))
         {
             modelBuilder.Entity(entityType.ClrType)
                         .Property<string>(CreatedByBrowserName).HasMaxLength(1000);
@@ -49,8 +51,6 @@ public static class AuditableShadowProperties
                         .Property<DateTime?>(ModifiedDateTime);
         }
     }
-
-
     public static AppShadowProperties GetShadowProperties(this IHttpContextAccessor httpContextAccessor)
     {
         if (httpContextAccessor == null)
@@ -64,17 +64,17 @@ public static class AuditableShadowProperties
             UserAgent = httpContext?.Request?.Headers["User-Agent"].ToString(),
             UserIp = httpContext?.Connection?.RemoteIpAddress?.ToString(),
             Now = DateTime.Now,
-            UserId = GetUserId(httpContext),
+            UserId = GetUserId(httpContext)
         };
     }
-
     private static long? GetUserId(HttpContext httpContext)
     {
         return httpContext?.User?.Identity?.GetUserId();
     }
 
-
-    public static void SetAuditableEntityPropertyValues(this ChangeTracker changeTracker, AppShadowProperties props)
+    public static void SetAuditableEntityPropertyValues(
+        this ChangeTracker changeTracker,
+        AppShadowProperties props)
     {
         if (props == null)
         {
@@ -96,7 +96,6 @@ public static class AuditableShadowProperties
         }
     }
 
-
     public static void SetModifiedShadowProperties(this EntityEntry<IAuditableEntity> modifiedEntry, AppShadowProperties props)
     {
         if (props == null)
@@ -112,7 +111,6 @@ public static class AuditableShadowProperties
         if (props.UserId.HasValue)
             modifiedEntry.Property(ModifiedByUserId).CurrentValue = props.UserId;
     }
-
 
     public static void SetAddedShadowProperties(this EntityEntry<IAuditableEntity> addedEntry, AppShadowProperties props)
     {

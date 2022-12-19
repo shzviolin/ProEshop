@@ -1,25 +1,21 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ProEshop.Entities.Identity;
+using ProEShop.Entities.Identity;
 
-namespace ProEshop.DataLayer.Configurations
+namespace ProEShop.DataLayer.Configurations;
+
+public class UserRoleConfiguration : IEntityTypeConfiguration<UserRole>
 {
-    /// <summary>
-    /// UserRole is an interface table=> we should declare 2 fluentApi for this
-    /// </summary>
-    public class UserRoleConfiguration : IEntityTypeConfiguration<UserRole>
+    public void Configure(EntityTypeBuilder<UserRole> builder)
     {
-        public void Configure(EntityTypeBuilder<UserRole> builder)
-        {
-            builder.HasOne(userRole => userRole.Role)
-                .WithMany(userRole => userRole.UserRoles)
-                .HasForeignKey(userRole => userRole.RoleId);
+        builder.HasOne(userRole => userRole.Role)
+            .WithMany(userRole => userRole.UserRoles)
+            .HasForeignKey(userRole => userRole.RoleId);
 
-            builder.HasOne(userRole => userRole.User)
-                .WithMany(userRole => userRole.UserRoles)
-                .HasForeignKey(userRole => userRole.UserId);
+        builder.HasOne(userRole => userRole.User)
+            .WithMany(userRole => userRole.UserRoles)
+            .HasForeignKey(userRole => userRole.UserId);
 
-            builder.ToTable("UserRoles");
-        }
+        builder.ToTable("UserRoles");
     }
 }

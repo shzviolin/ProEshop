@@ -5,18 +5,17 @@ using System.Security.Claims;
 using System.Security.Principal;
 using System.Text;
 
-namespace ProEshop.Common.IdentityToolkit;
+namespace ProEShop.Common.IdentityToolkit;
 
 public static class IdentityExtensions
 {
-    public static void AddErrorsFromResult(this ModelStateDictionary modelState,IdentityResult result)
+    public static void AddErrorsFromResult(this ModelStateDictionary modelStat, IdentityResult result)
     {
         foreach (var error in result.Errors)
         {
-            modelState.AddModelError(string.Empty, error.Description);
+            modelStat.AddModelError(string.Empty, error.Description);
         }
     }
-
     /// <summary>
     /// IdentityResult errors list to string
     /// </summary>
@@ -79,12 +78,5 @@ public static class IdentityExtensions
             return userId;
         }
         return null;
-    }
-
-    public static long GetLoggedInUserId(this IIdentity identity)
-    {
-        var userIdValue = identity.GetUserClaimValue(ClaimTypes.NameIdentifier);
-
-        return long.Parse(userIdValue, NumberStyles.Number, CultureInfo.InvariantCulture);
     }
 }

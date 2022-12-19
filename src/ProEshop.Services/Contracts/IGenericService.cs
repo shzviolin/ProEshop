@@ -1,6 +1,6 @@
-﻿using ProEshop.Entities;
+﻿using ProEShop.Entities;
 
-namespace ProEshop.Services.Contracts;
+namespace ProEShop.Services.Contracts;
 
 public interface IGenericService<TEntity> where TEntity : EntityBase, new()
 {
@@ -9,5 +9,5 @@ public interface IGenericService<TEntity> where TEntity : EntityBase, new()
     void Remove(TEntity entity);
     void Remove(long id);
     Task<TEntity> FindByIdAsync(long id);
-    Task<bool> IsExistByIdAsync(long id);
+    Task<bool> IsExistsByIdAsync(long id);
 }

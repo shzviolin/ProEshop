@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProEshop.Common.Constants;
+namespace ProEShop.Common.Constants;
 
 public static class LogCodes
 {

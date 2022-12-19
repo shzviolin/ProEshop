@@ -1,4 +1,4 @@
-﻿namespace ProEshop.Common.Constants;
+﻿namespace ProEShop.Common.Constants;
 
 public static class IdentityClaimNames
 {

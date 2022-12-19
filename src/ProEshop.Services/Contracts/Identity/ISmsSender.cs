@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProEshop.Services.Contracts.Identity;
+﻿namespace ProEShop.Services.Contracts.Identity;
 
 public interface ISmsSender
 {
-	#region BaseClass
-	Task<bool> SendSmsAsync(string number,string message);
-	#endregion
-	#region CustomMethod
+    #region BaseClass
 
-	#endregion
+    Task<bool> SendSmsAsync(string number, string message);
+
+    #endregion
+
+    #region CustomMethods
+
+    #endregion
 }

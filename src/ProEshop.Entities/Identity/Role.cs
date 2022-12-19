@@ -1,16 +1,18 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using ProEshop.Entities.AuditableEntity;
+using ProEShop.Entities.AuditableEntity;
 
-namespace ProEshop.Entities.Identity;
+namespace ProEShop.Entities.Identity;
 
 public class Role : IdentityRole<long>, IAuditableEntity
 {
-    public Role(string name) : base(name)
+    public Role(string name)
+        : base(name)
     {
 
     }
 
-    public Role(string name, string description) : this(name)
+    public Role(string name, string description)
+        : this(name)
     {
         Description = description;
     }

@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
-using ProEshop.Entities.Identity;
+using ProEShop.Entities.Identity;
 using System.Security.Claims;
 
-namespace ProEshop.Services.Contracts.Identity;
+namespace ProEShop.Services.Contracts.Identity;
 
 public interface IApplicationUserManager : IDisposable
 {
@@ -120,16 +120,7 @@ public interface IApplicationUserManager : IDisposable
 
     #endregion
 
-
     #region CustomClass
-
     Task<DateTime?> GetSendSmsLastTimeAsync(string phoneNumber);
-
-    //Task<bool> CheckForUserIsSeller(string phoneNumber);
-
-    //Task<CreateSellerViewModel> GetUserInfoForCreateSeller(string phoneNumber);
-
-    //Task<User> GetUserForCreateSeller(string userName);
-
     #endregion
 }

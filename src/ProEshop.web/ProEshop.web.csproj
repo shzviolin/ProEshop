@@ -1,41 +1,39 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>8c3e291f-05ca-4848-8fd8-e069ad2ac85d</UserSecretsId>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Pages\Identity\LoginWithPhoneNumber.cshtml.js" />
-    <None Remove="Pages\Identity\RegisterLogin.cshtml.css" />
-  </ItemGroup>
+	<ItemGroup>
+	  <None Remove="Pages\Identity\LoginWithPhoneNumber.cshtml.css" />
+	  <None Remove="Pages\Identity\LoginWithPhoneNumber.cshtml.js" />
+	  <None Remove="Pages\Identity\RegisterLogin.cshtml.css" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Content Include="Pages\Identity\LoginWithPhoneNumber.cshtml.js" />
-    <Content Include="Pages\Identity\RegisterLogin.cshtml.css" />
-  </ItemGroup>
+	<ItemGroup>
+	  <Content Include="Pages\Identity\LoginWithPhoneNumber.cshtml.js" />
+	  <Content Include="Pages\Identity\LoginWithPhoneNumber.cshtml.css" />
+	  <Content Include="Pages\Identity\RegisterLogin.cshtml.css" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.10">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ProEshop.Common\ProEshop.Common.csproj" />
-    <ProjectReference Include="..\ProEshop.DataLayer\ProEshop.DataLayer.csproj" />
-    <ProjectReference Include="..\ProEshop.Entities\ProEshop.Entities.csproj" />
-    <ProjectReference Include="..\ProEshop.IocConfig\ProEshop.IocConfig.csproj" />
-    <ProjectReference Include="..\ProEshop.Services\ProEshop.Services.csproj" />
-    <ProjectReference Include="..\ProEshop.ViewModels\ProEshop.ViewModels.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\images\application\" />
-    <Folder Include="wwwroot\lib\" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\ProEShop.Common\ProEShop.Common.csproj" />
+		<ProjectReference Include="..\ProEShop.DataLayer\ProEShop.DataLayer.csproj" />
+		<ProjectReference Include="..\ProEShop.Entities\ProEShop.Entities.csproj" />
+		<ProjectReference Include="..\ProEShop.IocConfig\ProEShop.IocConfig.csproj" />
+		<ProjectReference Include="..\ProEShop.Services\ProEShop.Services.csproj" />
+		<ProjectReference Include="..\ProEShop.ViewModels\ProEShop.ViewModels.csproj" />
+	</ItemGroup>
 
 </Project>

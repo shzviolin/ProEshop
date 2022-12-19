@@ -1,9 +1,9 @@
-﻿namespace ProEshop.Entities.AuditableEntity;
+﻿namespace ProEShop.Entities.AuditableEntity;
 
 public class AppShadowProperties
 {
-    public string UserAgent { get; set; }//information about browser
-    public string UserIp { get; set; }
-    public DateTime Now { get; set; }
-    public long? UserId { get; set; }
+    public string UserAgent { set; get; }
+    public string UserIp { set; get; }
+    public DateTime Now { set; get; }
+    public long? UserId { set; get; }
 }

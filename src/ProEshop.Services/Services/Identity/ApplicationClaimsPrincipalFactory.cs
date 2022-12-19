@@ -1,16 +1,13 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
-using ProEshop.Common.Constants;
-using ProEshop.Entities.Identity;
-using ProEshop.Services.Contracts.Identity;
+using ProEShop.Common.Constants;
+using ProEShop.Entities.Identity;
+using ProEShop.Services.Contracts.Identity;
 using System.Security.Claims;
 using System.Security.Principal;
 
-namespace ProEshop.Services.Services.Identity;
+namespace ProEShop.Services.Services.Identity;
 
-/// <summary>
-///های پیش فرض سیستم اضافه می شوند Claim به  Custom Claims موقع لاگین کاربر 
-/// </summary>
 public class ApplicationClaimsPrincipalFactory : UserClaimsPrincipalFactory<User, Role>
 {
     public ApplicationClaimsPrincipalFactory(
@@ -35,8 +32,8 @@ public class ApplicationClaimsPrincipalFactory : UserClaimsPrincipalFactory<User
     {
         (principal.Identity as ClaimsIdentity).AddClaims(new[]
         {
-            new Claim(IdentityClaimNames.Avatar, user.Avatar ?? string.Empty, ClaimValueTypes.String),
-            new Claim(IdentityClaimNames.FullName, user.FullName ?? string.Empty, ClaimValueTypes.String)
-        });
+                new Claim(IdentityClaimNames.Avatar, user.Avatar ?? string.Empty, ClaimValueTypes.String),
+                new Claim(IdentityClaimNames.FullName, user.FullName ?? string.Empty, ClaimValueTypes.String)
+            });
     }
 }

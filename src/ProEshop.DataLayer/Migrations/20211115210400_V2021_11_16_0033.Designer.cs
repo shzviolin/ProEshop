@@ -5,26 +5,26 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ProEshop.DataLayer.Context;
+using ProEShop.DataLayer.Context;
 
 #nullable disable
 
-namespace ProEshop.DataLayer.Migrations
+namespace ProEShop.DataLayer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221025134654_V_1716")]
-    partial class V_1716
+    [Migration("20211115210400_V2021_11_16_0033")]
+    partial class V2021_11_16_0033
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.10")
+                .HasAnnotation("ProductVersion", "6.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("ProEshop.Entities.Category", b =>
+            modelBuilder.Entity("ProEShop.Entities.Category", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -60,6 +60,9 @@ namespace ProEshop.DataLayer.Migrations
                     b.Property<DateTime?>("ModifiedDateTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Test")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -70,7 +73,7 @@ namespace ProEshop.DataLayer.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("ProEshop.Entities.Identity.Role", b =>
+            modelBuilder.Entity("ProEShop.Entities.Identity.Role", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -97,7 +100,6 @@ namespace ProEshop.DataLayer.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ModifiedByBrowserName")
@@ -132,7 +134,7 @@ namespace ProEshop.DataLayer.Migrations
                     b.ToTable("Roles", (string)null);
                 });
 
-            modelBuilder.Entity("ProEshop.Entities.Identity.RoleClaim", b =>
+            modelBuilder.Entity("ProEShop.Entities.Identity.RoleClaim", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -184,7 +186,7 @@ namespace ProEshop.DataLayer.Migrations
                     b.ToTable("RoleClaims", (string)null);
                 });
 
-            modelBuilder.Entity("ProEshop.Entities.Identity.User", b =>
+            modelBuilder.Entity("ProEShop.Entities.Identity.User", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -203,9 +205,6 @@ namespace ProEshop.DataLayer.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatDateTime")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("CreatedByBrowserName")
                         .HasMaxLength(1000)
@@ -229,7 +228,6 @@ namespace ProEshop.DataLayer.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
@@ -237,7 +235,6 @@ namespace ProEshop.DataLayer.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
@@ -281,6 +278,9 @@ namespace ProEshop.DataLayer.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("SendSmsLastTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
@@ -301,7 +301,7 @@ namespace ProEshop.DataLayer.Migrations
                     b.ToTable("Users", (string)null);
                 });
 
-            modelBuilder.Entity("ProEshop.Entities.Identity.UserClaim", b =>
+            modelBuilder.Entity("ProEShop.Entities.Identity.UserClaim", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -353,7 +353,7 @@ namespace ProEshop.DataLayer.Migrations
                     b.ToTable("UserClaims", (string)null);
                 });
 
-            modelBuilder.Entity("ProEshop.Entities.Identity.UserLogin", b =>
+            modelBuilder.Entity("ProEShop.Entities.Identity.UserLogin", b =>
                 {
                     b.Property<string>("LoginProvider")
                         .HasColumnType("nvarchar(450)");
@@ -402,7 +402,7 @@ namespace ProEshop.DataLayer.Migrations
                     b.ToTable("UserLogins", (string)null);
                 });
 
-            modelBuilder.Entity("ProEshop.Entities.Identity.UserRole", b =>
+            modelBuilder.Entity("ProEShop.Entities.Identity.UserRole", b =>
                 {
                     b.Property<long>("UserId")
                         .HasColumnType("bigint");
@@ -445,7 +445,7 @@ namespace ProEshop.DataLayer.Migrations
                     b.ToTable("UserRoles", (string)null);
                 });
 
-            modelBuilder.Entity("ProEshop.Entities.Identity.UserToken", b =>
+            modelBuilder.Entity("ProEShop.Entities.Identity.UserToken", b =>
                 {
                     b.Property<long>("UserId")
                         .HasColumnType("bigint");
@@ -492,9 +492,9 @@ namespace ProEshop.DataLayer.Migrations
                     b.ToTable("UserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("ProEshop.Entities.Identity.RoleClaim", b =>
+            modelBuilder.Entity("ProEShop.Entities.Identity.RoleClaim", b =>
                 {
-                    b.HasOne("ProEshop.Entities.Identity.Role", "Role")
+                    b.HasOne("ProEShop.Entities.Identity.Role", "Role")
                         .WithMany("RoleClaims")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -503,9 +503,9 @@ namespace ProEshop.DataLayer.Migrations
                     b.Navigation("Role");
                 });
 
-            modelBuilder.Entity("ProEshop.Entities.Identity.UserClaim", b =>
+            modelBuilder.Entity("ProEShop.Entities.Identity.UserClaim", b =>
                 {
-                    b.HasOne("ProEshop.Entities.Identity.User", "User")
+                    b.HasOne("ProEShop.Entities.Identity.User", "User")
                         .WithMany("UserClaims")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -514,9 +514,9 @@ namespace ProEshop.DataLayer.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ProEshop.Entities.Identity.UserLogin", b =>
+            modelBuilder.Entity("ProEShop.Entities.Identity.UserLogin", b =>
                 {
-                    b.HasOne("ProEshop.Entities.Identity.User", "User")
+                    b.HasOne("ProEShop.Entities.Identity.User", "User")
                         .WithMany("UserLogins")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -525,15 +525,15 @@ namespace ProEshop.DataLayer.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ProEshop.Entities.Identity.UserRole", b =>
+            modelBuilder.Entity("ProEShop.Entities.Identity.UserRole", b =>
                 {
-                    b.HasOne("ProEshop.Entities.Identity.Role", "Role")
+                    b.HasOne("ProEShop.Entities.Identity.Role", "Role")
                         .WithMany("UserRoles")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ProEshop.Entities.Identity.User", "User")
+                    b.HasOne("ProEShop.Entities.Identity.User", "User")
                         .WithMany("UserRoles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -544,9 +544,9 @@ namespace ProEshop.DataLayer.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ProEshop.Entities.Identity.UserToken", b =>
+            modelBuilder.Entity("ProEShop.Entities.Identity.UserToken", b =>
                 {
-                    b.HasOne("ProEshop.Entities.Identity.User", "User")
+                    b.HasOne("ProEShop.Entities.Identity.User", "User")
                         .WithMany("UserTokens")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -555,14 +555,14 @@ namespace ProEshop.DataLayer.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ProEshop.Entities.Identity.Role", b =>
+            modelBuilder.Entity("ProEShop.Entities.Identity.Role", b =>
                 {
                     b.Navigation("RoleClaims");
 
                     b.Navigation("UserRoles");
                 });
 
-            modelBuilder.Entity("ProEshop.Entities.Identity.User", b =>
+            modelBuilder.Entity("ProEShop.Entities.Identity.User", b =>
                 {
                     b.Navigation("UserClaims");
 

@@ -1,14 +1,10 @@
 ﻿using System.Net.Mime;
 
-
-namespace ProEshop.Services.Contracts;
+namespace ProEShop.Services.Contracts;
 
 public interface IHttpClientService
 {
-    Task<HttpResponseMessage> SendAsync(
-        string url,
-        HttpMethod method,
+    Task<HttpResponseMessage> SendAsync(string url, HttpMethod method,
         Dictionary<string, string> headers = null,
-        string content = "",
-        string mediaType = MediaTypeNames.Application.Json);
+        string content = "", string mediaType = MediaTypeNames.Application.Json);
 }

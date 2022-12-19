@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Options;
-using ProEshop.Common.Constants;
-using ProEshop.Common.Helpers;
-using ProEshop.Common.IdentityToolkit;
-using ProEshop.Entities.Identity;
-using ProEshop.Services.Contracts.Identity;
-using ProEshop.ViewModels.Identity;
-using ProEshop.ViewModels.Identity.Settings;
+using ProEShop.Common.Constants;
+using ProEShop.Common.Helpers;
+using ProEShop.Common.IdentityToolkit;
+using ProEShop.DataLayer.Context;
+using ProEShop.Entities.Identity;
+using ProEShop.Services.Contracts.Identity;
+using ProEShop.ViewModels.Identity;
+using ProEShop.ViewModels.Identity.Settings;
 
-
-namespace ProEshop.web.Pages.Identity;
+namespace ProEShop.Web.Pages.Identity;
 
 public class RegisterLoginModel : PageModel
 {
@@ -18,25 +18,24 @@ public class RegisterLoginModel : PageModel
 
     private readonly IApplicationUserManager _userManager;
     private readonly ILogger<RegisterLoginModel> _logger;
-    private readonly ISmsSender _smsSender;
     private readonly SiteSettings _siteSettings;
+    private readonly ISmsSender _smsSender;
+
     public RegisterLoginModel(
         IApplicationUserManager userManager,
         ILogger<RegisterLoginModel> logger,
         IOptionsMonitor<SiteSettings> siteSettings,
-        ISmsSender smsSender
-        )
+        ISmsSender smsSender)
     {
-        _userManager = userManager;
         _logger = logger;
-        _smsSender = smsSender;
+        _userManager = userManager;
         _siteSettings = siteSettings.CurrentValue;
+        _smsSender = smsSender;
     }
 
     #endregion
 
     public RegisterLoginViewModel RegisterLogin { get; set; }
-
     public void OnGet()
     {
     }
@@ -51,7 +50,7 @@ public class RegisterLoginModel : PageModel
         var isInputEmail = registerLogin.PhoneNumberOrEmail.IsEmail();
         if (!isInputEmail)
         {
-            var addNewUser=false;
+            var addNewUser = false;
             var user = await _userManager.FindByNameAsync(registerLogin.PhoneNumberOrEmail);
             if (user is null)
             {
@@ -60,7 +59,7 @@ public class RegisterLoginModel : PageModel
                     UserName = registerLogin.PhoneNumberOrEmail,
                     PhoneNumber = registerLogin.PhoneNumberOrEmail,
                     Avatar = _siteSettings.UserDefaultAvatar,
-                    Email = $"{StringHelpers.GenerateGuid()}testc.com",
+                    Email = $"{StringHelpers.GenerateGuid()}@test.com"
                 };
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
@@ -74,21 +73,20 @@ public class RegisterLoginModel : PageModel
                     return Page();
                 }
             }
-            if (DateTime.Now > user.SendSmsLastTime.AddMinutes(3)|| addNewUser)
+            if (DateTime.Now > user.SendSmsLastTime.AddMinutes(3) || addNewUser)
             {
                 var phoneNumberToken = await _userManager.GenerateChangePhoneNumberTokenAsync(user, registerLogin.PhoneNumberOrEmail);
-                //Send Sms token to the user
-                var sendSmsResult = await _smsSender.SendSmsAsync(user.PhoneNumber, $"کد فعال سازی شما\n {phoneNumberToken}");
-                if (!sendSmsResult)
-                {
-                    ModelState.AddModelError(string.Empty, "در ارسال پیامک خطایی به وجود آمد. لطفا دوباره سعی نمایید");
-                    return Page();
-                }
+                // todo: Send Sms token to the user
+                //var sendSmsResult = await _smsSender.SendSmsAsync(user.PhoneNumber, $"کد فعال سازی شما\n {phoneNumberToken}");
+                //if (!sendSmsResult)
+                //{
+                //    ModelState.AddModelError(string.Empty, "در ارسال پیامک خطایی به وجود آمد، لطفا دوباره سعی نمایید.");
+                //    return Page();
+                //}
                 user.SendSmsLastTime = DateTime.Now;
                 await _userManager.UpdateAsync(user);
             }
         }
-        return RedirectToPage("./LoginWithPhoneNumber", new { PhoneNumber = registerLogin.PhoneNumberOrEmail });
-
+        return RedirectToPage("./LoginWithPhoneNumber", new { phoneNumber = registerLogin.PhoneNumberOrEmail });
     }
 }

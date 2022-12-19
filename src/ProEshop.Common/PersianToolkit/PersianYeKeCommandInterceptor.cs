@@ -1,18 +1,17 @@
-﻿using DNTPersianUtils.Core;
+using DNTPersianUtils.Core;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using System.Data;
 using System.Data.Common;
 using System.Globalization;
 
-
-namespace ProEshop.Common.PersianToolkit;
+namespace ProEShop.Common.PersianToolkit;
 
 public class PersianYeKeCommandInterceptor : DbCommandInterceptor
 {
     public override InterceptionResult<DbDataReader> ReaderExecuting(
-         DbCommand command,
-         CommandEventData eventData,
-         InterceptionResult<DbDataReader> result)
+        DbCommand command,
+        CommandEventData eventData,
+        InterceptionResult<DbDataReader> result)
     {
         ApplyCorrectYeKe(command);
         return result;

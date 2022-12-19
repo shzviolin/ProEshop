@@ -3,12 +3,11 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using ProEshop.DataLayer.Context;
-using ProEshop.Entities.Identity;
-using ProEshop.Services.Contracts.Identity;
+using ProEShop.DataLayer.Context;
+using ProEShop.Entities.Identity;
+using ProEShop.Services.Contracts.Identity;
 
-
-namespace ProEshop.Services.Services.Identity;
+namespace ProEShop.Services.Services.Identity;
 
 public class ApplicationUserManager
     : UserManager<User>, IApplicationUserManager
@@ -25,23 +24,26 @@ public class ApplicationUserManager
         IdentityErrorDescriber errors,
         IServiceProvider services,
         ILogger<ApplicationUserManager> logger,
-        IUnitOfWork unitOfWork
-        )
-        : base((UserStore<User, Role, ApplicationDbContext, long, UserClaim, UserRole, UserLogin, UserToken, RoleClaim>)store,
-            optionsAccessor, passwordHasher, userValidators, passwordValidators, keyNormalizer, errors, services, logger)
+        IUnitOfWork uow)
+        : base(
+            (UserStore<User, Role, ApplicationDbContext, long, UserClaim, UserRole, UserLogin, UserToken,
+                RoleClaim>)store,
+            optionsAccessor, passwordHasher, userValidators, passwordValidators,
+            keyNormalizer, errors, services, logger)
     {
-        _users=unitOfWork.Set<User>();
+        _users = uow.Set<User>();
     }
 
     #region CustomClass
 
-    public async Task<DateTime?>GetSendSmsLastTimeAsync(string phoneNumber)
+    public async Task<DateTime?> GetSendSmsLastTimeAsync(string phoneNumber)
     {
-        var result=await _users.Select(x=>new
-        {
-            x.UserName,
-            x.SendSmsLastTime
-        }).SingleOrDefaultAsync(x=>x.UserName==phoneNumber);
+        var result = await _users.Select(x => new
+                    {
+                        x.UserName,
+                        x.SendSmsLastTime
+                    })
+                    .SingleOrDefaultAsync(x => x.UserName == phoneNumber);
         return result?.SendSmsLastTime;
     }
 

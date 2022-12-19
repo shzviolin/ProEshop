@@ -2,38 +2,37 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
-using ProEshop.Common.GuardToolkit;
-using ProEshop.Entities.Identity;
-using ProEshop.Services.Services.Identity;
-using ProEshop.ViewModels.Identity.Settings;
+using ProEShop.Common.GuardToolkit;
+using ProEShop.Entities.Identity;
+using ProEShop.Services.Services.Identity;
+using ProEShop.ViewModels.Identity.Settings;
 
-namespace ProEshop.IocConfig;
+namespace ProEShop.IocConfig;
 
 public static class AddIdentityOptionsExtensions
 {
     public const string EmailConfirmationTokenProviderName = "ConfirmEmail";
 
-    public static IServiceCollection AddIdentityOptions(this IServiceCollection services, SiteSettings siteSettings)
+    public static IServiceCollection AddIdentityOptions(
+        this IServiceCollection services, SiteSettings siteSettings)
     {
-        // if(siteSettings == null)
-        //    throw new ArgumentNullException(nameof(siteSettings));
         siteSettings.CheckArgumentIsNull(nameof(siteSettings));
 
         services.AddConfirmEmailDataProtectorTokenOptions(siteSettings);
-
         services.AddIdentity<User, Role>(identityOptions =>
-        {
-            SetPasswordOptions(identityOptions.Password, siteSettings);
-            SetSignInOptions(identityOptions.SignIn, siteSettings);
-            SetUserOptions(identityOptions.User);
-            SetLockoutOptions(identityOptions.Lockout, siteSettings);
-        })
-            .AddUserStore<ApplicationUserStore>()
+            {
+                SetPasswordOptions(identityOptions.Password, siteSettings);
+                SetSignInOptions(identityOptions.SignIn, siteSettings);
+                SetUserOptions(identityOptions.User);
+                SetLockoutOptions(identityOptions.Lockout, siteSettings);
+            }).AddUserStore<ApplicationUserStore>()
             .AddUserManager<ApplicationUserManager>()
             .AddRoleStore<ApplicationRoleStore>()
             .AddRoleManager<ApplicationRoleManager>()
             .AddSignInManager<ApplicationSignInManager>()
             .AddErrorDescriber<CustomIdentityErrorDescriber>()
+            // You **cannot** use .AddEntityFrameworkStores() when you customize everything
+            //.AddEntityFrameworkStores<ApplicationDbContext, long>()
             .AddDefaultTokenProviders()
             .AddTokenProvider<ConfirmEmailDataProtectorTokenProvider<User>>(EmailConfirmationTokenProviderName);
 
@@ -48,7 +47,7 @@ public static class AddIdentityOptionsExtensions
         return services;
     }
 
-    static void AddConfirmEmailDataProtectorTokenOptions(this IServiceCollection services,
+    private static void AddConfirmEmailDataProtectorTokenOptions(this IServiceCollection services,
         SiteSettings siteSettings)
     {
         services.Configure<IdentityOptions>(options =>
@@ -56,20 +55,23 @@ public static class AddIdentityOptionsExtensions
             options.Tokens.EmailConfirmationTokenProvider = EmailConfirmationTokenProviderName;
         });
 
-        services.Configure<ConfirmEmailDataProtectionTokenProviderOptions>(options => options.TokenLifespan = siteSettings.EmailConfirmationTokenProviderLifespan);
+        services.Configure<ConfirmEmailDataProtectionTokenProviderOptions>(options =>
+        {
+            options.TokenLifespan = siteSettings.EmailConfirmationTokenProviderLifespan;
+        });
     }
 
-    static void EnableImmediateLogout(this IServiceCollection services)
+    private static void EnableImmediateLogout(this IServiceCollection services)
     {
         services.Configure<SecurityStampValidatorOptions>(options =>
         {
             // enables immediate logout, after updating the user's stat.
             options.ValidationInterval = TimeSpan.Zero;
-            options.OnRefreshingPrincipal = principalContext => Task.CompletedTask;
+            options.OnRefreshingPrincipal = principalContext => { return Task.CompletedTask; };
         });
     }
 
-    static void SetApplicationCookieOptions(IServiceProvider provider,
+    private static void SetApplicationCookieOptions(IServiceProvider provider,
         CookieAuthenticationOptions identityOptionsCookies, SiteSettings siteSettings)
     {
         identityOptionsCookies.Cookie.Name = siteSettings.CookieOptions.CookieName;
@@ -86,14 +88,14 @@ public static class AddIdentityOptionsExtensions
         identityOptionsCookies.AccessDeniedPath = siteSettings.CookieOptions.AccessDeniedPath;
     }
 
-    static void SetLockoutOptions(LockoutOptions identityOptionsLockout, SiteSettings siteSettings)
+    private static void SetLockoutOptions(LockoutOptions identityOptionsLockout, SiteSettings siteSettings)
     {
         identityOptionsLockout.AllowedForNewUsers = siteSettings.LockoutOptions.AllowedForNewUsers;
         identityOptionsLockout.DefaultLockoutTimeSpan = siteSettings.LockoutOptions.DefaultLockoutTimeSpan;
         identityOptionsLockout.MaxFailedAccessAttempts = siteSettings.LockoutOptions.MaxFailedAccessAttempts;
     }
 
-    static void SetPasswordOptions(PasswordOptions identityOptionsPassword, SiteSettings siteSettings)
+    private static void SetPasswordOptions(PasswordOptions identityOptionsPassword, SiteSettings siteSettings)
     {
         identityOptionsPassword.RequireDigit = siteSettings.PasswordOptions.RequireDigit;
         identityOptionsPassword.RequireLowercase = siteSettings.PasswordOptions.RequireLowercase;
@@ -102,12 +104,12 @@ public static class AddIdentityOptionsExtensions
         identityOptionsPassword.RequiredLength = siteSettings.PasswordOptions.RequiredLength;
     }
 
-    static void SetSignInOptions(SignInOptions identityOptionsSignIn, SiteSettings siteSettings)
+    private static void SetSignInOptions(SignInOptions identityOptionsSignIn, SiteSettings siteSettings)
     {
         identityOptionsSignIn.RequireConfirmedEmail = siteSettings.EnableEmailConfirmation;
     }
 
-    static void SetUserOptions(UserOptions identityOptionsUser)
+    private static void SetUserOptions(UserOptions identityOptionsUser)
     {
         identityOptionsUser.RequireUniqueEmail = true;
     }

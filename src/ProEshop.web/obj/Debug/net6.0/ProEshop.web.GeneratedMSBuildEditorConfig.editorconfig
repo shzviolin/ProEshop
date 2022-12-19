@@ -6,43 +6,51 @@ build_property.ProjectTypeGuids =
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
-build_property.RootNamespace = ProEshop.web
-build_property.RootNamespace = ProEshop.web
-build_property.ProjectDir = D:\My Projects\ProEShop\src\ProEshop.web\
+build_property.RootNamespace = ProEShop.Web
+build_property.RootNamespace = ProEShop.Web
+build_property.ProjectDir = D:\My Projects\ProEShop\src\ProEShop.Web\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = D:\My Projects\ProEShop\src\ProEshop.web
+build_property.MSBuildProjectDirectory = D:\My Projects\ProEShop\src\ProEShop.Web
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/My Projects/ProEShop/src/ProEshop.web/Pages/Identity/LoginWithPhoneNumber.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSWRlbnRpdHlcTG9naW5XaXRoUGhvbmVOdW1iZXIuY3NodG1s
+[D:/My Projects/ProEShop/src/ProEShop.Web/Pages/Identity/LoginWithPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSWRlbnRpdHlcTG9naW5XaXRoUGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Projects/ProEShop/src/ProEshop.web/Pages/Index.cshtml]
+[D:/My Projects/ProEShop/src/ProEShop.Web/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Projects/ProEShop/src/ProEshop.web/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[D:/My Projects/ProEShop/src/ProEShop.Web/Pages/Shared/_IdentityLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9JZGVudGl0eUxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My Projects/ProEShop/src/ProEShop.Web/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My Projects/ProEShop/src/ProEShop.Web/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Projects/ProEShop/src/ProEshop.web/Pages/_ViewImports.cshtml]
+[D:/My Projects/ProEShop/src/ProEShop.Web/Pages/Test.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My Projects/ProEShop/src/ProEShop.Web/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Projects/ProEShop/src/ProEshop.web/Pages/_ViewStart.cshtml]
+[D:/My Projects/ProEShop/src/ProEShop.Web/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Projects/ProEShop/src/ProEshop.web/Pages/Identity/RegisterLogin.cshtml]
+[D:/My Projects/ProEShop/src/ProEShop.Web/Pages/Identity/LoginWithPhoneNumber.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSWRlbnRpdHlcTG9naW5XaXRoUGhvbmVOdW1iZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-et3ehjdo6l
+
+[D:/My Projects/ProEShop/src/ProEShop.Web/Pages/Identity/RegisterLogin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSWRlbnRpdHlcUmVnaXN0ZXJMb2dpbi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = b-rapmmf4hp5
-
-[D:/My Projects/ProEShop/src/ProEshop.web/Pages/Shared/_IdentityLayout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9JZGVudGl0eUxheW91dC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = b-9buk5o5mni
-
-[D:/My Projects/ProEShop/src/ProEshop.web/Pages/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-imi397l7wf
+build_metadata.AdditionalFiles.CssScope = b-ksdgitrxxw

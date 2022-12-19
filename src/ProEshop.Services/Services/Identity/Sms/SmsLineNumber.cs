@@ -1,7 +1,4 @@
-﻿using ProEshop.Services.Services.Identity.Sms;
-
-namespace ProEshop.Services.Services.Identity.Smsl;
-
+namespace ProEShop.Services.Services.Identity.Sms;
 public class SmsLineNumber
 {
     public List<SmsLine> SMSLines { get; set; }
