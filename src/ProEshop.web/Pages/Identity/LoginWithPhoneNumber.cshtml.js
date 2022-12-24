@@ -29,30 +29,30 @@ function setCountDownTimeBox() {
 }
 
 ///////
-function reSendActivationCode(phoneNumber, e) {
-    showLoading(function () { reSendActivationCodeFunc(phoneNumber, e) });
-}
-function reSendActivationCodeFunc(phoneNumber, e) {
+function reSendActivationCode(phoneNumber, e, reSendSmsUrl) {
+    showLoading();
     var objectToSend = {
         phoneNumber: phoneNumber,
         __RequestVerificationToken: getRVT(e)
     }
-    console.log(objectToSend);
-    console.log(window.location.pathname);
-    $.post(window.location.pathname + '?handler=ReSendUserSmsActivation', objectToSend, function (data, status) {
+    console.log(reSendSmsUrl);
+    $.post(reSendSmsUrl, objectToSend, function (data, status) {
+        hideLoading();
         if (status == 'success' && data.isSuccessful) {
-            hideLoading();
-            console.log(data.message);
+            showToaster('success', data.message);
             $('#activation-code-box').html(data.data.activationCode);
             $('#count-down-timer-box').parent().removeClass('d-none');
-            $('#send-user-activation-sms-box').addClass('d-none');
+            //$('#send-user-activation-sms-box').addClass('d-none');
             minute = 3;
             second = 0;
             setCountDownTimeBox();
             countDownTimerInterval = setInterval(countDown, 1000);
         }
+        else {
+            showToaster('error', data.message);
+        }
     }).fail(function () {
-        console.log('خطایی به وجود آمد، لطفا مجددا تلاش نمایید');
+        showToaster('error', 'خطایی به وجود آمد، لطفا مجددا تلاش نمایید');
     });
 }
 function getRVT(e) {
