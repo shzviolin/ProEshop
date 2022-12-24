@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Ixc0CGUv4dWYDFw5C4Kddc6hi7gob615rRGHcncLWjw=",
+  "Hash": "wgs7O0vfVvyd/i0dYwX6ifWVed8AEIV/QKrtLLrbiZQ=",
   "Source": "ProEShop.Web",
   "BasePath": "_content/ProEShop.Web",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "Pages\\Identity\\LoginWithPhoneNumber.cshtml.js"
+    },
+    {
+      "Identity": "D:\\My Projects\\ProEShop\\src\\ProEShop.Web\\wwwroot\\css\\admin-styles.css",
+      "SourceId": "ProEShop.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\My Projects\\ProEShop\\src\\ProEShop.Web\\wwwroot\\",
+      "BasePath": "_content/ProEShop.Web",
+      "RelativePath": "css/admin-styles.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\admin-styles.css"
     },
     {
       "Identity": "D:\\My Projects\\ProEShop\\src\\ProEShop.Web\\wwwroot\\css\\main-styles.css",
@@ -253,6 +270,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\user-avatar.png"
+    },
+    {
+      "Identity": "D:\\My Projects\\ProEShop\\src\\ProEShop.Web\\wwwroot\\js\\admin-scripts.js",
+      "SourceId": "ProEShop.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\My Projects\\ProEShop\\src\\ProEShop.Web\\wwwroot\\",
+      "BasePath": "_content/ProEShop.Web",
+      "RelativePath": "js/admin-scripts.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\admin-scripts.js"
     },
     {
       "Identity": "D:\\My Projects\\ProEShop\\src\\ProEShop.Web\\wwwroot\\js\\main-scripts.js",

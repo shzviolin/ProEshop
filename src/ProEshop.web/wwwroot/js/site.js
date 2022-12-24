@@ -23,7 +23,7 @@ function hideLoading() {
     $('#loading-modal').modal('hide');
 }
 
-// Toaster
+// Toastr
 function showToaster(status, message) {
     toastr.options = {
         "closeButton": false,
@@ -42,6 +42,12 @@ function showToaster(status, message) {
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
     }
-    toastr[status](message)
+    toastr[status](message);
 }
-// End toaster
+// End toastr
+
+// Enable tooltips
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+});
