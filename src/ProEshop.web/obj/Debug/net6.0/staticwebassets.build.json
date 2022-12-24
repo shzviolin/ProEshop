@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Zuvmv3Bm7/qMSvFyy10dq/jBErS6n2OrajmM5oW4ZrA=",
+  "Hash": "Ixc0CGUv4dWYDFw5C4Kddc6hi7gob615rRGHcncLWjw=",
   "Source": "ProEShop.Web",
   "BasePath": "_content/ProEShop.Web",
   "Mode": "Default",
@@ -33522,6 +33522,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\jquery.slim.min.map"
+    },
+    {
+      "Identity": "D:\\My Projects\\ProEShop\\src\\ProEShop.Web\\wwwroot\\lib\\jquery-ajax-unobtrusive\\jquery.unobtrusive-ajax.js",
+      "SourceId": "ProEShop.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\My Projects\\ProEShop\\src\\ProEShop.Web\\wwwroot\\",
+      "BasePath": "_content/ProEShop.Web",
+      "RelativePath": "lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-ajax-unobtrusive\\jquery.unobtrusive-ajax.js"
+    },
+    {
+      "Identity": "D:\\My Projects\\ProEShop\\src\\ProEShop.Web\\wwwroot\\lib\\jquery-ajax-unobtrusive\\jquery.unobtrusive-ajax.min.js",
+      "SourceId": "ProEShop.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\My Projects\\ProEShop\\src\\ProEShop.Web\\wwwroot\\",
+      "BasePath": "_content/ProEShop.Web",
+      "RelativePath": "lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-ajax-unobtrusive\\jquery.unobtrusive-ajax.min.js"
     },
     {
       "Identity": "D:\\My Projects\\ProEShop\\src\\ProEShop.Web\\wwwroot\\lib\\jquery-validate\\additional-methods.js",

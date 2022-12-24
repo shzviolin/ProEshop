@@ -42,7 +42,7 @@ function reSendActivationCode(phoneNumber, e, reSendSmsUrl) {
             showToaster('success', data.message);
             $('#activation-code-box').html(data.data.activationCode);
             $('#count-down-timer-box').parent().removeClass('d-none');
-            //$('#send-user-activation-sms-box').addClass('d-none');
+            $('#send-user-activation-sms-box').addClass('d-none');
             minute = 3;
             second = 0;
             setCountDownTimeBox();
@@ -57,4 +57,22 @@ function reSendActivationCode(phoneNumber, e, reSendSmsUrl) {
 }
 function getRVT(e) {
     return $(e).parents('form').find(`input[name="${rvt}"]`).val();
+}
+
+function onBeginLoginWithPhoneNumber() {
+    showLoading();
+}
+function onCompleteLoginWithPhoneNumber() {
+    hideLoading();
+}
+function onFailureLoginWithPhoneNumber() {
+    showToaster('error', 'خطایی به وجود آمد، لطفا مجددا تلاش نمایید');
+}
+function onSuccessLoginWithPhoneNumber(data, status) {
+    if (status == 'success' && data.isSuccessful) {
+        showToaster('success', 'شما با موفقیت وارد شدید');
+        location.href = '/';
+    } else {
+        showToaster('error', data.message);
+    }
 }
