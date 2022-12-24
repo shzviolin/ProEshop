@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ProEShop.DataLayer.Migrations
 {
-    public partial class V2022_12_24_1634 : Migration
+    public partial class V2022_12_24_2347 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,7 +28,8 @@ namespace ProEShop.DataLayer.Migrations
                     ModifiedByBrowserName = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
                     ModifiedByIp = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     ModifiedByUserId = table.Column<long>(type: "bigint", nullable: true),
-                    ModifiedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    ModifiedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -118,7 +119,8 @@ namespace ProEShop.DataLayer.Migrations
                     ModifiedByBrowserName = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
                     ModifiedByIp = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     ModifiedByUserId = table.Column<long>(type: "bigint", nullable: true),
-                    ModifiedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    ModifiedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {

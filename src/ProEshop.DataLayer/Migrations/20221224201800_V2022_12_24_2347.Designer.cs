@@ -12,8 +12,8 @@ using ProEShop.DataLayer.Context;
 namespace ProEShop.DataLayer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221224130423_V2022_12_24_1634")]
-    partial class V2022_12_24_1634
+    [Migration("20221224201800_V2022_12_24_2347")]
+    partial class V2022_12_24_2347
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,6 +49,9 @@ namespace ProEShop.DataLayer.Migrations
                     b.Property<string>("Description")
                         .HasMaxLength(2000)
                         .HasColumnType("nvarchar(2000)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ModifiedByBrowserName")
                         .HasMaxLength(1000)
@@ -540,6 +543,9 @@ namespace ProEShop.DataLayer.Migrations
 
                     b.Property<DateTime>("CreatedDateTime")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ModifiedByBrowserName")
                         .HasMaxLength(1000)

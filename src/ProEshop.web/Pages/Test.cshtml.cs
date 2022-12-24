@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ProEShop.DataLayer.Context;
+using ProEShop.Entities;
 
 namespace ProEShop.Web.Pages;
 
@@ -16,6 +17,6 @@ public class TestModel : PageModel
     }
     public void OnGet()
     {
-        var products=_context.Products.Where(x=>x.Category.Parent.ParentId==3).ToList();
+        var products=_context.Set<Product>().Where(x=>x.Category.Parent.ParentId==3).ToList();
     }
 }

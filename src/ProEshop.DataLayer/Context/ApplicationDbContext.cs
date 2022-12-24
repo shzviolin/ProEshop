@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using ProEShop.Common.EntityFramework;
 using ProEShop.Entities;
 using ProEShop.Entities.AuditableEntity;
 using ProEShop.Entities.Identity;
@@ -41,12 +42,10 @@ public class ApplicationDbContext :
         return base.SaveChangesAsync(cancellationToken);
     }
 
-    public DbSet<Category> Categories { get; set; }
-    public DbSet<Product> Products { get; set; }
-
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
+        builder.RegisterAllEntities(typeof(EntityBase));
         builder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
         //...
         // This should be placed here, at the end.

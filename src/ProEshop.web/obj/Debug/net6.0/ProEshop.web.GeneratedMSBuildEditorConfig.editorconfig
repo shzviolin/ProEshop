@@ -15,12 +15,24 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = D:\My Projects\ProEShop\src\ProEShop.Web
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/My Projects/ProEShop/src/ProEShop.Web/Pages/Admin/Category/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2F0ZWdvcnlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/My Projects/ProEShop/src/ProEShop.Web/Pages/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/My Projects/ProEShop/src/ProEShop.Web/Pages/Admin/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/My Projects/ProEShop/src/ProEShop.Web/Pages/Identity/LoginWithPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSWRlbnRpdHlcTG9naW5XaXRoUGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My Projects/ProEShop/src/ProEShop.Web/Pages/Identity/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSWRlbnRpdHlcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/My Projects/ProEShop/src/ProEShop.Web/Pages/Index.cshtml]
