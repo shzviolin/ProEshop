@@ -3,7 +3,6 @@ D:\My Projects\ProEShop\src\ProEShop.Web\obj\Debug\net6.0\ProEShop.Web.Generated
 D:\My Projects\ProEShop\src\ProEShop.Web\obj\Debug\net6.0\ProEShop.Web.AssemblyInfoInputs.cache
 D:\My Projects\ProEShop\src\ProEShop.Web\obj\Debug\net6.0\ProEShop.Web.AssemblyInfo.cs
 D:\My Projects\ProEShop\src\ProEShop.Web\obj\Debug\net6.0\ProEShop.Web.csproj.CoreCompileInputs.cache
-D:\My Projects\ProEShop\src\ProEShop.Web\obj\Debug\net6.0\ProEShop.Web.MvcApplicationPartsAssemblyInfo.cs
 D:\My Projects\ProEShop\src\ProEShop.Web\obj\Debug\net6.0\ProEShop.Web.MvcApplicationPartsAssemblyInfo.cache
 D:\My Projects\ProEShop\src\ProEShop.Web\obj\Debug\net6.0\ProEShop.Web.RazorAssemblyInfo.cache
 D:\My Projects\ProEShop\src\ProEShop.Web\obj\Debug\net6.0\ProEShop.Web.RazorAssemblyInfo.cs

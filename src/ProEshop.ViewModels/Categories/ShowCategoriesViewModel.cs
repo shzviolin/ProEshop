@@ -15,5 +15,5 @@ public class ShowCategoryViewModel
     public string Parent { get; set; }
 
     [Display(Name = "نمایش در منوهای اصلی")]
-    public bool ShoeInMenus { get; set; }
+    public bool ShowInMenus { get; set; }
 }

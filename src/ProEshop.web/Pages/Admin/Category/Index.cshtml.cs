@@ -21,6 +21,7 @@ namespace ProEShop.Web.Pages.Admin.Category
         = new();
 
         public async Task OnGetAsync()
+        
         {
             Categories = await _categoryService.GetCategories();
         }

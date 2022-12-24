@@ -21,7 +21,7 @@ public class CategoryService : GenericService<Category>, ICategoryService
             .Select(x => new ShowCategoryViewModel
             {
                 Title = x.Title,
-                ShoeInMenus = x.ShowInMenus,
+                ShowInMenus = x.ShowInMenus,
                 Parent = x.ParentId != null ? x.Parent.Title : "دسته اصلی"
             })
             .ToListAsync();
