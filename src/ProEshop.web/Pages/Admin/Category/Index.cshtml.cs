@@ -10,6 +10,7 @@ namespace ProEShop.Web.Pages.Admin.Category
         #region Constructor
 
         private readonly ICategoryService _categoryService;
+
         public IndexModel(ICategoryService categoryService)
         {
             _categoryService = categoryService;
@@ -17,16 +18,21 @@ namespace ProEShop.Web.Pages.Admin.Category
 
         #endregion
 
+        public SearchCategoriesViewModel SearchCategories { get; set; }
+        = new();
+
         public ShowCategoriesViewModel Categories { get; set; }
         = new();
 
-        public SearchCategoriesViewModel SearchCategories { get; set; }
-        =new();
-
-        public async Task OnGetAsync(SearchCategoriesViewModel searchCategories)
-        
+        public void OnGet()
         {
-            Categories = await _categoryService.GetCategories(searchCategories);
+
+        }
+
+        public async Task<PartialViewResult> OnGetGetDataTableAsync(SearchCategoriesViewModel searchCategories)
+        {
+            return Partial("List", await _categoryService.GetCategories(searchCategories));
         }
     }
 }
+

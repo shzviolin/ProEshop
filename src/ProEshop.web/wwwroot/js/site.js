@@ -24,7 +24,7 @@ function hideLoading() {
 }
 
 // Toastr
-function showToaster(status, message) {
+function showToastr(status, message) {
     toastr.options = {
         "closeButton": false,
         "debug": false,

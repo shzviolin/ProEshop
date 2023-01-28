@@ -39,7 +39,7 @@ function reSendActivationCode(phoneNumber, e, reSendSmsUrl) {
     $.post(reSendSmsUrl, objectToSend, function (data, status) {
         hideLoading();
         if (status == 'success' && data.isSuccessful) {
-            showToaster('success', data.message);
+            showToastr('success', data.message);
             $('#activation-code-box').html(data.data.activationCode);
             $('#count-down-timer-box').parent().removeClass('d-none');
             $('#send-user-activation-sms-box').addClass('d-none');
@@ -49,10 +49,10 @@ function reSendActivationCode(phoneNumber, e, reSendSmsUrl) {
             countDownTimerInterval = setInterval(countDown, 1000);
         }
         else {
-            showToaster('error', data.message);
+            showToastr('error', data.message);
         }
     }).fail(function () {
-        showToaster('error', 'خطایی به وجود آمد، لطفا مجددا تلاش نمایید');
+        showToastr('error', 'خطایی به وجود آمد، لطفا مجددا تلاش نمایید');
     });
 }
 function getRVT(e) {
@@ -66,13 +66,13 @@ function onCompleteLoginWithPhoneNumber() {
     hideLoading();
 }
 function onFailureLoginWithPhoneNumber() {
-    showToaster('error', 'خطایی به وجود آمد، لطفا مجددا تلاش نمایید');
+    showToastr('error', 'خطایی به وجود آمد، لطفا مجددا تلاش نمایید');
 }
 function onSuccessLoginWithPhoneNumber(data, status) {
     if (status == 'success' && data.isSuccessful) {
-        showToaster('success', 'شما با موفقیت وارد شدید');
+        showToastr('success', 'شما با موفقیت وارد شدید');
         location.href = '/';
     } else {
-        showToaster('error', data.message);
+        showToastr('error', data.message);
     }
 }
