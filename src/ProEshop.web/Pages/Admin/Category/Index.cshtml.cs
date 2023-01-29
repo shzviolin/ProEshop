@@ -31,7 +31,6 @@ namespace ProEShop.Web.Pages.Admin.Category
 
         public async Task<IActionResult> OnGetGetDataTableAsync(SearchCategoriesViewModel searchCategories)
         {
-            //Thread.Sleep(2000);
             if (!ModelState.IsValid)
             {
                 return Json(new JsonResultOperation(false, PublicConstantStrings.ModelStateErrorMessage)
@@ -40,6 +39,15 @@ namespace ProEShop.Web.Pages.Admin.Category
                 });
             }
             return Partial("List", await _categoryService.GetCategories(searchCategories));
+        }
+
+        public IActionResult OnGetAdd()
+        {
+            return Partial("Add");
+        }
+        public IActionResult OnPostAdd(AddCategoryViewModel model)
+        {
+            return Partial("Add");
         }
     }
 }

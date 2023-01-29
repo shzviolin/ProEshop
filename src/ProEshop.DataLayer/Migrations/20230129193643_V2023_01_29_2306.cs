@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ProEShop.DataLayer.Migrations
 {
     /// <inheritdoc />
-    public partial class V202212260115 : Migration
+    public partial class V202301292306 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,7 +18,7 @@ namespace ProEShop.DataLayer.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(4000)", maxLength: 4000, nullable: true),
                     Slug = table.Column<string>(type: "nvarchar(130)", maxLength: 130, nullable: false),
                     Picture = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     ParentId = table.Column<long>(type: "bigint", nullable: true),

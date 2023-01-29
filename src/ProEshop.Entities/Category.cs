@@ -15,7 +15,7 @@ public class Category : EntityBase, IAuditableEntity
     [MaxLength(100)]
     public string Title { get; set; }
 
-    [MaxLength(2000)]
+    [MaxLength(4000)]
     public string Description { get; set; }
 
     [Required]
