@@ -24,9 +24,6 @@ namespace ProEShop.Web.Pages.Admin.Category
         public SearchCategoriesViewModel SearchCategories { get; set; }
         = new();
 
-        public ShowCategoriesViewModel Categories { get; set; }
-        = new();
-
         public void OnGet()
         {
 
@@ -34,6 +31,7 @@ namespace ProEShop.Web.Pages.Admin.Category
 
         public async Task<IActionResult> OnGetGetDataTableAsync(SearchCategoriesViewModel searchCategories)
         {
+            //Thread.Sleep(2000);
             if (!ModelState.IsValid)
             {
                 return Json(new JsonResultOperation(false, PublicConstantStrings.ModelStateErrorMessage)
