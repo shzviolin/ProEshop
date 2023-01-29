@@ -2080,12 +2080,6 @@
 	  <None Include="wwwroot\lib\jquery-validate\localization\methods_pt.min.js" />
 	  <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
 	  <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
-	  <None Include="wwwroot\lib\jquery\jquery.js" />
-	  <None Include="wwwroot\lib\jquery\jquery.min.js" />
-	  <None Include="wwwroot\lib\jquery\jquery.min.map" />
-	  <None Include="wwwroot\lib\jquery\jquery.slim.js" />
-	  <None Include="wwwroot\lib\jquery\jquery.slim.min.js" />
-	  <None Include="wwwroot\lib\jquery\jquery.slim.min.map" />
 	</ItemGroup>
 
 	<ItemGroup>

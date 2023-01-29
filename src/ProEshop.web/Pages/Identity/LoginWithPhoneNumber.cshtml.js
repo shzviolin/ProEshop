@@ -52,7 +52,7 @@ function reSendActivationCode(phoneNumber, e, reSendSmsUrl) {
             showToastr('error', data.message);
         }
     }).fail(function () {
-        showToastr('error', 'خطایی به وجود آمد، لطفا مجددا تلاش نمایید');
+        showErrorMessage();
     });
 }
 function getRVT(e) {
@@ -66,7 +66,7 @@ function onCompleteLoginWithPhoneNumber() {
     hideLoading();
 }
 function onFailureLoginWithPhoneNumber() {
-    showToastr('error', 'خطایی به وجود آمد، لطفا مجددا تلاش نمایید');
+    showErrorMessage();
 }
 function onSuccessLoginWithPhoneNumber(data, status) {
     if (status == 'success' && data.isSuccessful) {
