@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ProEShop.DataLayer.Migrations
 {
     /// <inheritdoc />
-    public partial class V202301292306 : Migration
+    public partial class V202302180132 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

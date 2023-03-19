@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\My Projects\\ProEShop\\src\\ProEShop.IocConfig\\ProEShop.IocConfig.csproj": {}
+    "F:\\ProEShop\\src\\ProEShop.IocConfig\\ProEShop.IocConfig.csproj": {}
   },
   "projects": {
-    "D:\\My Projects\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj": {
+    "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\My Projects\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj",
+        "projectUniqueName": "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj",
         "projectName": "ProEShop.Common",
-        "projectPath": "D:\\My Projects\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj",
-        "packagesPath": "C:\\Users\\AFRA service\\.nuget\\packages\\",
-        "outputPath": "D:\\My Projects\\ProEShop\\src\\ProEShop.Common\\obj\\",
+        "projectPath": "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj",
+        "packagesPath": "C:\\Users\\aebra\\.nuget\\packages\\",
+        "outputPath": "F:\\ProEShop\\src\\ProEShop.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\AFRA service\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aebra\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -77,24 +78,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\My Projects\\ProEShop\\src\\ProEShop.DataLayer\\ProEShop.DataLayer.csproj": {
+    "F:\\ProEShop\\src\\ProEShop.DataLayer\\ProEShop.DataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\My Projects\\ProEShop\\src\\ProEShop.DataLayer\\ProEShop.DataLayer.csproj",
+        "projectUniqueName": "F:\\ProEShop\\src\\ProEShop.DataLayer\\ProEShop.DataLayer.csproj",
         "projectName": "ProEShop.DataLayer",
-        "projectPath": "D:\\My Projects\\ProEShop\\src\\ProEShop.DataLayer\\ProEShop.DataLayer.csproj",
-        "packagesPath": "C:\\Users\\AFRA service\\.nuget\\packages\\",
-        "outputPath": "D:\\My Projects\\ProEShop\\src\\ProEShop.DataLayer\\obj\\",
+        "projectPath": "F:\\ProEShop\\src\\ProEShop.DataLayer\\ProEShop.DataLayer.csproj",
+        "packagesPath": "C:\\Users\\aebra\\.nuget\\packages\\",
+        "outputPath": "F:\\ProEShop\\src\\ProEShop.DataLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\AFRA service\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aebra\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -109,8 +111,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\My Projects\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj": {
-                "projectPath": "D:\\My Projects\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj"
+              "F:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj": {
+                "projectPath": "F:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj"
               }
             }
           }
@@ -150,24 +152,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\My Projects\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj": {
+    "F:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\My Projects\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj",
+        "projectUniqueName": "F:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj",
         "projectName": "ProEShop.Entities",
-        "projectPath": "D:\\My Projects\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj",
-        "packagesPath": "C:\\Users\\AFRA service\\.nuget\\packages\\",
-        "outputPath": "D:\\My Projects\\ProEShop\\src\\ProEShop.Entities\\obj\\",
+        "projectPath": "F:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj",
+        "packagesPath": "C:\\Users\\aebra\\.nuget\\packages\\",
+        "outputPath": "F:\\ProEShop\\src\\ProEShop.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\AFRA service\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aebra\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -182,8 +185,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\My Projects\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj": {
-                "projectPath": "D:\\My Projects\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj"
+              "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj": {
+                "projectPath": "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj"
               }
             }
           }
@@ -227,24 +230,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\My Projects\\ProEShop\\src\\ProEShop.IocConfig\\ProEShop.IocConfig.csproj": {
+    "F:\\ProEShop\\src\\ProEShop.IocConfig\\ProEShop.IocConfig.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\My Projects\\ProEShop\\src\\ProEShop.IocConfig\\ProEShop.IocConfig.csproj",
+        "projectUniqueName": "F:\\ProEShop\\src\\ProEShop.IocConfig\\ProEShop.IocConfig.csproj",
         "projectName": "ProEShop.IocConfig",
-        "projectPath": "D:\\My Projects\\ProEShop\\src\\ProEShop.IocConfig\\ProEShop.IocConfig.csproj",
-        "packagesPath": "C:\\Users\\AFRA service\\.nuget\\packages\\",
-        "outputPath": "D:\\My Projects\\ProEShop\\src\\ProEShop.IocConfig\\obj\\",
+        "projectPath": "F:\\ProEShop\\src\\ProEShop.IocConfig\\ProEShop.IocConfig.csproj",
+        "packagesPath": "C:\\Users\\aebra\\.nuget\\packages\\",
+        "outputPath": "F:\\ProEShop\\src\\ProEShop.IocConfig\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\AFRA service\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aebra\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -259,17 +263,17 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\My Projects\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj": {
-                "projectPath": "D:\\My Projects\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj"
+              "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj": {
+                "projectPath": "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj"
               },
-              "D:\\My Projects\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj": {
-                "projectPath": "D:\\My Projects\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj"
+              "F:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj": {
+                "projectPath": "F:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj"
               },
-              "D:\\My Projects\\ProEShop\\src\\ProEShop.Services\\ProEShop.Services.csproj": {
-                "projectPath": "D:\\My Projects\\ProEShop\\src\\ProEShop.Services\\ProEShop.Services.csproj"
+              "F:\\ProEShop\\src\\ProEShop.Services\\ProEShop.Services.csproj": {
+                "projectPath": "F:\\ProEShop\\src\\ProEShop.Services\\ProEShop.Services.csproj"
               },
-              "D:\\My Projects\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj": {
-                "projectPath": "D:\\My Projects\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj"
+              "F:\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj": {
+                "projectPath": "F:\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj"
               }
             }
           }
@@ -299,24 +303,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\My Projects\\ProEShop\\src\\ProEShop.Services\\ProEShop.Services.csproj": {
+    "F:\\ProEShop\\src\\ProEShop.Services\\ProEShop.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\My Projects\\ProEShop\\src\\ProEShop.Services\\ProEShop.Services.csproj",
+        "projectUniqueName": "F:\\ProEShop\\src\\ProEShop.Services\\ProEShop.Services.csproj",
         "projectName": "ProEShop.Services",
-        "projectPath": "D:\\My Projects\\ProEShop\\src\\ProEShop.Services\\ProEShop.Services.csproj",
-        "packagesPath": "C:\\Users\\AFRA service\\.nuget\\packages\\",
-        "outputPath": "D:\\My Projects\\ProEShop\\src\\ProEShop.Services\\obj\\",
+        "projectPath": "F:\\ProEShop\\src\\ProEShop.Services\\ProEShop.Services.csproj",
+        "packagesPath": "C:\\Users\\aebra\\.nuget\\packages\\",
+        "outputPath": "F:\\ProEShop\\src\\ProEShop.Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\AFRA service\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aebra\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -331,17 +336,17 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\My Projects\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj": {
-                "projectPath": "D:\\My Projects\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj"
+              "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj": {
+                "projectPath": "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj"
               },
-              "D:\\My Projects\\ProEShop\\src\\ProEShop.DataLayer\\ProEShop.DataLayer.csproj": {
-                "projectPath": "D:\\My Projects\\ProEShop\\src\\ProEShop.DataLayer\\ProEShop.DataLayer.csproj"
+              "F:\\ProEShop\\src\\ProEShop.DataLayer\\ProEShop.DataLayer.csproj": {
+                "projectPath": "F:\\ProEShop\\src\\ProEShop.DataLayer\\ProEShop.DataLayer.csproj"
               },
-              "D:\\My Projects\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj": {
-                "projectPath": "D:\\My Projects\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj"
+              "F:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj": {
+                "projectPath": "F:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj"
               },
-              "D:\\My Projects\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj": {
-                "projectPath": "D:\\My Projects\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj"
+              "F:\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj": {
+                "projectPath": "F:\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj"
               }
             }
           }
@@ -380,24 +385,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\My Projects\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj": {
+    "F:\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\My Projects\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj",
+        "projectUniqueName": "F:\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj",
         "projectName": "ProEShop.ViewModels",
-        "projectPath": "D:\\My Projects\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj",
-        "packagesPath": "C:\\Users\\AFRA service\\.nuget\\packages\\",
-        "outputPath": "D:\\My Projects\\ProEShop\\src\\ProEShop.ViewModels\\obj\\",
+        "projectPath": "F:\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj",
+        "packagesPath": "C:\\Users\\aebra\\.nuget\\packages\\",
+        "outputPath": "F:\\ProEShop\\src\\ProEShop.ViewModels\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\AFRA service\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aebra\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -412,8 +418,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\My Projects\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj": {
-                "projectPath": "D:\\My Projects\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj"
+              "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj": {
+                "projectPath": "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj"
               }
             }
           }
@@ -453,7 +459,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

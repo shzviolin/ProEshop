@@ -12,8 +12,8 @@ using ProEShop.DataLayer.Context;
 namespace ProEShop.DataLayer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230129193643_V2023_01_29_2306")]
-    partial class V202301292306
+    [Migration("20230217220308_V2023_02_18_0132")]
+    partial class V202302180132
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

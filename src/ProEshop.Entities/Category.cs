@@ -15,7 +15,7 @@ public class Category : EntityBase, IAuditableEntity
     [MaxLength(100)]
     public string Title { get; set; }
 
-    [MaxLength(4000)]
+    [Column(TypeName ="ntext")]
     public string Description { get; set; }
 
     [Required]
