@@ -64,7 +64,7 @@ function initializeTinyMCE() {
         language: 'fa_IR',
         language_url: '/js/tinymce-langs/fa_IR.js',
         content_style: 'body{font-family:Vazir}',
-        plugins: 'link table preview colorpicker wordcount',
+        plugins: 'link table preview wordcount',
         toolbar: 'link bold italic table preview undo redo'
     });
 }

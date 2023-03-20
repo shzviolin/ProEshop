@@ -53,7 +53,14 @@ namespace ProEShop.Web.Pages.Admin.Category
         }
         public IActionResult OnPostAdd(AddCategoryViewModel model)
         {
-            return Partial("Add");
+            if (!ModelState.IsValid)
+            {
+                return Json(new JsonResultOperation(false, PublicConstantStrings.ModelStateErrorMessage)
+                {
+                    Data = ModelState.GetModelStateErrors()
+                });
+            }
+            return Json(new JsonResultOperation(true, "دسته بندی مورد نظر با موفقیت اضافه شد."));
         }
     }
 }
