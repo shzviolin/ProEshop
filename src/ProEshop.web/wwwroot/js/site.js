@@ -77,6 +77,6 @@ document.addEventListener('focusin', function (e) {
 function initializeSelect2() {
     $('.custom-select2').select2({
         theme: 'bootstrap-5',
-        dropdownParent: $('#show-form-modal')
+        dropdownParent: $('#show-form-modal') 
     });
 }

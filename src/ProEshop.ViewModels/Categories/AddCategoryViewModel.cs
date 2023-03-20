@@ -33,5 +33,5 @@ public class AddCategoryViewModel
     [Display(Name = "نمایش در منوهای اصلی")]
     public bool ShowInMenus { get; set; }
 
-    public SelectListItem MainCategories { get; set; }
+    public List<SelectListItem> MainCategories { get; set; }
 }
