@@ -73,3 +73,10 @@ document.addEventListener('focusin', function (e) {
         e.stopImmediatePropagation();
     }
 });
+
+function initializeSelect2() {
+    $('.custom-select2').select2({
+        theme: 'bootstrap-5',
+        dropdownParent: $('#show-form-modal')
+    });
+}
