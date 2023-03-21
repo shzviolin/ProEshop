@@ -4,6 +4,7 @@ using ProEShop.Common;
 using ProEShop.Common.Constants;
 using ProEShop.Common.Helpers;
 using ProEShop.Common.IdentityToolkit;
+using ProEShop.DataLayer.Context;
 using ProEShop.Services.Contracts;
 using ProEShop.ViewModels.Categories;
 
@@ -14,10 +15,11 @@ namespace ProEShop.Web.Pages.Admin.Category
         #region Constructor
 
         private readonly ICategoryService _categoryService;
-
-        public IndexModel(ICategoryService categoryService)
+        private readonly IUnitOfWork _uow;
+        public IndexModel(ICategoryService categoryService, IUnitOfWork uow)
         {
             _categoryService = categoryService;
+            _uow = uow;
         }
 
         #endregion
@@ -51,7 +53,7 @@ namespace ProEShop.Web.Pages.Admin.Category
             };
             return Partial("Add", model);
         }
-        public IActionResult OnPostAdd(AddCategoryViewModel model)
+        public async Task<IActionResult> OnPostAdd(AddCategoryViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -60,6 +62,25 @@ namespace ProEShop.Web.Pages.Admin.Category
                     Data = ModelState.GetModelStateErrors()
                 });
             }
+
+            var category = new Entities.Category
+            {
+                Title = model.Title,
+                Slug = model.Slug,
+                Description = model.Description,
+                ShowInMenus = model.ShowInMenus,
+                ParentId = model.ParentId == 0 ? null : model.ParentId
+            };
+            var result = await _categoryService.AddAsync(category);
+            if (!result.Ok)
+            {
+                return Json(new JsonResultOperation(false, PublicConstantStrings.DuplicateErrorMessage)
+                {
+                    Data = result.Columns.AddDuplicateErrors<AddCategoryViewModel>()
+                });
+            }
+            await _uow.SaveChangesAsync();
+
             return Json(new JsonResultOperation(true, "دسته بندی مورد نظر با موفقیت اضافه شد."));
         }
     }
