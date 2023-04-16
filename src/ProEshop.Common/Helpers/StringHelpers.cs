@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -18,8 +19,8 @@ public static class StringHelpers
     }
 
     public static string GenerateGuid() => Guid.NewGuid().ToString("N");
-
-    public static List<string> AddDuplicateErrors<T>(this List<string> duplicateColumns)
+ 
+    public static List<string> SetDuplicateColumnErrorMessages<T>(this List<string> duplicateColumns)
     {
         var result = new List<string>();
         foreach (var duplicateColumn in duplicateColumns)
@@ -29,5 +30,10 @@ public static class StringHelpers
             result.Add($"این {columnDisplayName} قبلا در سیستم ثبت شده است");
         }
         return result;
+    }
+
+    public static string GenerateFileName(this IFormFile file)
+    {
+        return GenerateGuid() + Path.GetExtension(file.FileName);
     }
 }

@@ -23,6 +23,9 @@ public class ShowCategoryViewModel
 
     [Display(Name = "نمایش در منوهای اصلی")]
     public bool ShowInMenus { get; set; }
+
+    [Display(Name = "تصویر")]
+    public string Picture { get; set; }
 }
 
 public class SearchCategoriesViewModel

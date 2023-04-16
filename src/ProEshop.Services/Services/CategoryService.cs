@@ -57,7 +57,8 @@ public class CategoryService : GenericService<Category>, ICategoryService
                 Title = x.Title,
                 ShowInMenus = x.ShowInMenus,
                 Parent = x.ParentId != null ? x.Parent.Title : "دسته اصلی",
-                Slug = x.Slug
+                Slug = x.Slug,
+                Picture = x.Picture ?? "No Picture"
             })
             .ToListAsync()
         };
