@@ -11,3 +11,16 @@ public enum DeletedStatus
     [Display(Name = "فقط حذف شده ها")]
     OnlyDeleted
 }
+
+public class PaginationViewModel
+{
+    public int CurrentPage { get; set; } = 1;
+    public byte Take { get; set; }
+    public int PageCount { get; set; }
+}
+
+public class PaginationResultViewModel<T>
+{
+    public IQueryable<T> Query { get; set; }
+    public PaginationViewModel pagination { get; set; }
+}

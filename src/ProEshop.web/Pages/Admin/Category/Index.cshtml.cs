@@ -26,7 +26,7 @@ namespace ProEShop.Web.Pages.Admin.Category
 
         #endregion
 
-        public SearchCategoriesViewModel SearchCategories { get; set; }
+        public ShowCategoriesViewModel Categories { get; set; }
         = new();
 
         public void OnGet()
@@ -34,7 +34,7 @@ namespace ProEShop.Web.Pages.Admin.Category
 
         }
 
-        public async Task<IActionResult> OnGetGetDataTableAsync(SearchCategoriesViewModel searchCategories)
+        public async Task<IActionResult> OnGetGetDataTableAsync(ShowCategoriesViewModel categoriesViewModel)
         {
             if (!ModelState.IsValid)
             {
@@ -43,7 +43,9 @@ namespace ProEShop.Web.Pages.Admin.Category
                     Data = ModelState.GetModelStateErrors()
                 });
             }
-            return Partial("List", await _categoryService.GetCategories(searchCategories));
+            categoriesViewModel.Pagination.CurrentPage = 2;
+            categoriesViewModel.Pagination.Take = 2;
+            return Partial("List", await _categoryService.GetCategories(categoriesViewModel));
         }
 
         public IActionResult OnGetAdd()
