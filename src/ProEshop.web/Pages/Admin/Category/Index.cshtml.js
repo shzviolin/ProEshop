@@ -21,9 +21,17 @@
 
     function activatingPagination() {
         $('#main-pagianation button').click(function () {
+            debugger;
+            isMainPaginationClicked = true;
             var currentPageSelected = $(this).val();
             $('.search-form-via-ajax input[name$="Pagination.CurrentPage"]').val(currentPageSelected);
             $('.search-form-via-ajax').submit();
+        });
+    }
+
+    function activatingGoToPage() {
+        $('#go-to-page-button').click(function () {
+            isGoToPageClicked = true;
         });
     }
 
@@ -35,6 +43,8 @@
                 $('.data-table-place .data-table-body').remove();
                 $('.data-table-place').append(data);
                 activatingPagination();
+                activatingGoToPage();
+                enablingTooltips();
             }
             else {
                 showErrorMessage();
@@ -82,11 +92,21 @@
         });
     });
 
+    var isMainPaginationClicked = false;
+    var isGoToPageClicked = false;
+
     $(document).on('submit', 'form.search-form-via-ajax', function (e) {
         e.preventDefault();
         var currentForm = $(this);
-        const formData = currentForm.serializeArray();
+        var pageNumberInput = $('#page-number-input').val();
+        if (isGoToPageClicked || $('#page-number-input').is(':focus')) {
+            currentForm.find('input[name$="Pagination.CurrentPage"]').val(pageNumberInput);
+        }
+        else if (!isMainPaginationClicked) {
+            currentForm.find('input[name$="Pagination.CurrentPage"]').val(1);
+        }
 
+        const formData = currentForm.serializeArray();
         //show loading and activation button
         currentForm.find('.search-form-loading').attr('disabled', 'disabled');
         currentForm.find('.search-form-loading span').removeClass('d-none');
@@ -95,7 +115,8 @@
         $('.data-table-body').html('');
 
         $.get(`${location.pathname}?handler=GetDataTable`, formData, function (data, status) {
-
+            isMainPaginationClicked = false;
+            isGoToPageClicked = false;
             //hide loading and disable button
             currentForm.find('.search-form-loading').removeAttr('disabled');
             currentForm.find('.search-form-loading span').addClass('d-none');
@@ -109,6 +130,8 @@
                 else {
                     $('.data-table-place .data-table-body').html(data);
                     activatingPagination();
+                    activatingGoToPage()
+                    enablingTooltips();
                 }
             }
             else {

@@ -7153,11 +7153,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj",
+      "projectUniqueName": "B:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj",
       "projectName": "ProEShop.Common",
-      "projectPath": "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj",
+      "projectPath": "B:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj",
       "packagesPath": "C:\\Users\\aebra\\.nuget\\packages\\",
-      "outputPath": "F:\\ProEShop\\src\\ProEShop.Common\\obj\\",
+      "outputPath": "B:\\ProEShop\\src\\ProEShop.Common\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

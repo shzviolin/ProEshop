@@ -10625,11 +10625,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\ProEShop\\src\\ProEShop.IocConfig\\ProEShop.IocConfig.csproj",
+      "projectUniqueName": "B:\\ProEShop\\src\\ProEShop.IocConfig\\ProEShop.IocConfig.csproj",
       "projectName": "ProEShop.IocConfig",
-      "projectPath": "F:\\ProEShop\\src\\ProEShop.IocConfig\\ProEShop.IocConfig.csproj",
+      "projectPath": "B:\\ProEShop\\src\\ProEShop.IocConfig\\ProEShop.IocConfig.csproj",
       "packagesPath": "C:\\Users\\aebra\\.nuget\\packages\\",
-      "outputPath": "F:\\ProEShop\\src\\ProEShop.IocConfig\\obj\\",
+      "outputPath": "B:\\ProEShop\\src\\ProEShop.IocConfig\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -10651,17 +10651,17 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj": {
-              "projectPath": "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj"
+            "B:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj": {
+              "projectPath": "B:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj"
             },
-            "F:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj": {
-              "projectPath": "F:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj"
+            "B:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj": {
+              "projectPath": "B:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj"
             },
-            "F:\\ProEShop\\src\\ProEShop.Services\\ProEShop.Services.csproj": {
-              "projectPath": "F:\\ProEShop\\src\\ProEShop.Services\\ProEShop.Services.csproj"
+            "B:\\ProEShop\\src\\ProEShop.Services\\ProEShop.Services.csproj": {
+              "projectPath": "B:\\ProEShop\\src\\ProEShop.Services\\ProEShop.Services.csproj"
             },
-            "F:\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj": {
-              "projectPath": "F:\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj"
+            "B:\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj": {
+              "projectPath": "B:\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj"
             }
           }
         }

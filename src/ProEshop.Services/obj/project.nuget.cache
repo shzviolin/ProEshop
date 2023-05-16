@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QhDRg5Ka7YwNFIpg3ROzRRwWjHUmE2pbKLlGW9ntKUiY6RGmO86O8e+4oDe66tGWjrSGcj+Ga2wD10Wq5WVzWQ==",
+  "dgSpecHash": "OJBUHLTSN7MTvzUIWHVrcYOSXQHb1ZqLYbAAzt+Pe7zrT0BEVYnfQ8x1GdBpehHZDbcTEBDD30rc6mwTpfJIug==",
   "success": true,
-  "projectFilePath": "F:\\ProEShop\\src\\ProEShop.Services\\ProEShop.Services.csproj",
+  "projectFilePath": "B:\\ProEShop\\src\\ProEShop.Services\\ProEShop.Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aebra\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\aebra\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

@@ -7211,11 +7211,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj",
+      "projectUniqueName": "B:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj",
       "projectName": "ProEShop.Entities",
-      "projectPath": "F:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj",
+      "projectPath": "B:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj",
       "packagesPath": "C:\\Users\\aebra\\.nuget\\packages\\",
-      "outputPath": "F:\\ProEShop\\src\\ProEShop.Entities\\obj\\",
+      "outputPath": "B:\\ProEShop\\src\\ProEShop.Entities\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -7237,8 +7237,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj": {
-              "projectPath": "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj"
+            "B:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj": {
+              "projectPath": "B:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj"
             }
           }
         }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\ProEShop\\src\\ProEShop.Services\\ProEShop.Services.csproj": {}
+    "B:\\ProEShop\\src\\ProEShop.Services\\ProEShop.Services.csproj": {}
   },
   "projects": {
-    "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj": {
+    "B:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj",
+        "projectUniqueName": "B:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj",
         "projectName": "ProEShop.Common",
-        "projectPath": "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj",
+        "projectPath": "B:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj",
         "packagesPath": "C:\\Users\\aebra\\.nuget\\packages\\",
-        "outputPath": "F:\\ProEShop\\src\\ProEShop.Common\\obj\\",
+        "outputPath": "B:\\ProEShop\\src\\ProEShop.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -90,14 +90,14 @@
         }
       }
     },
-    "F:\\ProEShop\\src\\ProEShop.DataLayer\\ProEShop.DataLayer.csproj": {
+    "B:\\ProEShop\\src\\ProEShop.DataLayer\\ProEShop.DataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\ProEShop\\src\\ProEShop.DataLayer\\ProEShop.DataLayer.csproj",
+        "projectUniqueName": "B:\\ProEShop\\src\\ProEShop.DataLayer\\ProEShop.DataLayer.csproj",
         "projectName": "ProEShop.DataLayer",
-        "projectPath": "F:\\ProEShop\\src\\ProEShop.DataLayer\\ProEShop.DataLayer.csproj",
+        "projectPath": "B:\\ProEShop\\src\\ProEShop.DataLayer\\ProEShop.DataLayer.csproj",
         "packagesPath": "C:\\Users\\aebra\\.nuget\\packages\\",
-        "outputPath": "F:\\ProEShop\\src\\ProEShop.DataLayer\\obj\\",
+        "outputPath": "B:\\ProEShop\\src\\ProEShop.DataLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -119,8 +119,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "F:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj": {
-                "projectPath": "F:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj"
+              "B:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj": {
+                "projectPath": "B:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj"
               }
             }
           }
@@ -164,14 +164,14 @@
         }
       }
     },
-    "F:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj": {
+    "B:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj",
+        "projectUniqueName": "B:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj",
         "projectName": "ProEShop.Entities",
-        "projectPath": "F:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj",
+        "projectPath": "B:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj",
         "packagesPath": "C:\\Users\\aebra\\.nuget\\packages\\",
-        "outputPath": "F:\\ProEShop\\src\\ProEShop.Entities\\obj\\",
+        "outputPath": "B:\\ProEShop\\src\\ProEShop.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -193,8 +193,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj": {
-                "projectPath": "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj"
+              "B:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj": {
+                "projectPath": "B:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj"
               }
             }
           }
@@ -242,14 +242,14 @@
         }
       }
     },
-    "F:\\ProEShop\\src\\ProEShop.Services\\ProEShop.Services.csproj": {
+    "B:\\ProEShop\\src\\ProEShop.Services\\ProEShop.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\ProEShop\\src\\ProEShop.Services\\ProEShop.Services.csproj",
+        "projectUniqueName": "B:\\ProEShop\\src\\ProEShop.Services\\ProEShop.Services.csproj",
         "projectName": "ProEShop.Services",
-        "projectPath": "F:\\ProEShop\\src\\ProEShop.Services\\ProEShop.Services.csproj",
+        "projectPath": "B:\\ProEShop\\src\\ProEShop.Services\\ProEShop.Services.csproj",
         "packagesPath": "C:\\Users\\aebra\\.nuget\\packages\\",
-        "outputPath": "F:\\ProEShop\\src\\ProEShop.Services\\obj\\",
+        "outputPath": "B:\\ProEShop\\src\\ProEShop.Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -271,17 +271,17 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj": {
-                "projectPath": "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj"
+              "B:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj": {
+                "projectPath": "B:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj"
               },
-              "F:\\ProEShop\\src\\ProEShop.DataLayer\\ProEShop.DataLayer.csproj": {
-                "projectPath": "F:\\ProEShop\\src\\ProEShop.DataLayer\\ProEShop.DataLayer.csproj"
+              "B:\\ProEShop\\src\\ProEShop.DataLayer\\ProEShop.DataLayer.csproj": {
+                "projectPath": "B:\\ProEShop\\src\\ProEShop.DataLayer\\ProEShop.DataLayer.csproj"
               },
-              "F:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj": {
-                "projectPath": "F:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj"
+              "B:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj": {
+                "projectPath": "B:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj"
               },
-              "F:\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj": {
-                "projectPath": "F:\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj"
+              "B:\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj": {
+                "projectPath": "B:\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj"
               }
             }
           }
@@ -324,14 +324,14 @@
         }
       }
     },
-    "F:\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj": {
+    "B:\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj",
+        "projectUniqueName": "B:\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj",
         "projectName": "ProEShop.ViewModels",
-        "projectPath": "F:\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj",
+        "projectPath": "B:\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj",
         "packagesPath": "C:\\Users\\aebra\\.nuget\\packages\\",
-        "outputPath": "F:\\ProEShop\\src\\ProEShop.ViewModels\\obj\\",
+        "outputPath": "B:\\ProEShop\\src\\ProEShop.ViewModels\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -353,8 +353,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj": {
-                "projectPath": "F:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj"
+              "B:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj": {
+                "projectPath": "B:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj"
               }
             }
           }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VHNQ+JFAVmVTWOZmbFRt1JhdTX5e8XJayP58pEMmWUe5yuxJiVPmkJkGPiORQPNICSZoBFO2RNKbuaCU3PG31A==",
+  "dgSpecHash": "rBum9VzcTceoLPJGp1SgKBpJa3fdpkp6KS0Uux9aDeXB3EIYBIfDlO9ae1deK/BcHJqj/uutlvcxotpKrAZeAA==",
   "success": true,
-  "projectFilePath": "F:\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj",
+  "projectFilePath": "B:\\ProEShop\\src\\ProEShop.ViewModels\\ProEShop.ViewModels.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aebra\\.nuget\\packages\\dntpersianutils.core\\5.4.9\\dntpersianutils.core.5.4.9.nupkg.sha512",
     "C:\\Users\\aebra\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
