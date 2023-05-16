@@ -1,27 +1,28 @@
 ﻿$(function () {
-    $('.show-modal-form-button').click(function (e) {
-        e.preventDefault();
-        var urlToLoadForm = $(this).attr('href');
-        showLoading();
-        $.get(urlToLoadForm, function (data, status) {
-            hideLoading();
-            if (status == 'success') {
-                $('#form-modal-place .modal-body').html(data);
-                initializeTinyMCE();
-                initializeSelect2();
-                $.validator.unobtrusive.parse($('#form-modal-place form'));
-                $('#form-modal-place').modal('show');
-            }
-            else {
-                showErrorMessage();
-            }
+    function activatingModalForm() {
+        $('.show-modal-form-button').click(function (e) {
+            e.preventDefault();
+            var urlToLoadForm = $(this).attr('href');
+            showLoading();
+            $.get(urlToLoadForm, function (data, status) {
+                hideLoading();
+                if (status == 'success') {
+                    $('#form-modal-place .modal-body').html(data);
+                    initializeTinyMCE();
+                    initializeSelect2();
+                    $.validator.unobtrusive.parse($('#form-modal-place form'));
+                    $('#form-modal-place').modal('show');
+                }
+                else {
+                    showErrorMessage();
+                }
+            });
         });
-
-    });
+    }
+    activatingModalForm();
 
     function activatingPagination() {
         $('#main-pagianation button').click(function () {
-            debugger;
             isMainPaginationClicked = true;
             var currentPageSelected = $(this).val();
             $('.search-form-via-ajax input[name$="Pagination.CurrentPage"]').val(currentPageSelected);
@@ -44,6 +45,7 @@
                 $('.data-table-place').append(data);
                 activatingPagination();
                 activatingGoToPage();
+                activatingModalForm();
                 enablingTooltips();
             }
             else {
@@ -130,7 +132,8 @@
                 else {
                     $('.data-table-place .data-table-body').html(data);
                     activatingPagination();
-                    activatingGoToPage()
+                    activatingGoToPage();
+                    activatingModalForm();
                     enablingTooltips();
                 }
             }
@@ -140,6 +143,8 @@
         });
     });
 });
+
+
 
 function fillValidationForm(errors, currentForm) {
     var result = '<ul>';

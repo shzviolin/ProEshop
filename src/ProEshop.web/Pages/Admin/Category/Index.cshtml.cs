@@ -92,6 +92,15 @@ namespace ProEShop.Web.Pages.Admin.Category
 
             return Json(new JsonResultOperation(true, "دسته بندی مورد نظر با موفقیت اضافه شد."));
         }
+
+        public async Task<IActionResult> OnGetEdit(long id)
+        {
+            var model = await _categoryService.GetForEdit(id);
+            model.MainCategories = _categoryService.GetCategoriesToShowInSelectBox()
+             .CreateSelectListItem(firstItemText: "خودش دسته اصلی باشد");
+
+            return Partial("Edit", model);
+        }
     }
 }
 
