@@ -89,6 +89,22 @@ public class CategoryService : GenericService<Category>, ICategoryService
         };
     }
 
+    public override async Task<DuplicateColumns> Update(Category entity)
+    {
+        var query = _categories.Where(x => x.Id != entity.Id);
+        var result = new List<string>();
+        if (await query.AnyAsync(x => x.Title == entity.Title))
+            result.Add(nameof(Category.Title));
+        if (await query.AnyAsync(x => x.Slug == entity.Slug))
+            result.Add(nameof(Category.Slug));
+        if (!result.Any())
+            await base.Update(entity);
+        return new DuplicateColumns(!result.Any())
+        {
+            Columns = result
+        };
+    }
+
     public async Task<EditCategoryViewModel> GetForEdit(long id)
     {
         return await _categories.Select(x => new EditCategoryViewModel()

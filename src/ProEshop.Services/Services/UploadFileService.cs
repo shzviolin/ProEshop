@@ -12,7 +12,7 @@ public class UploadFileService : IUploadFileService
     {
         _environment = environment;
     }
-    public async Task SaveFile(IFormFile file, string fileName, params string[] destinationDirectoryNames)
+    public async Task SaveFile(IFormFile file, string fileName,string oldFileName, params string[] destinationDirectoryNames)
     {
         if(file == null || file.Length==0)
         {
@@ -35,6 +35,11 @@ public class UploadFileService : IUploadFileService
         }
 
         var filePath = Path.Combine(uploadRootFolder, fileName);
+        if (oldFileName != null)
+        {
+            var oldFilePath = Path.Combine(uploadRootFolder, oldFileName);
+            File.Delete(oldFilePath);
+        }
 
         await using var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None, MaxBufferSize,
             //you have to explicity open the FileStream as asynchronous
