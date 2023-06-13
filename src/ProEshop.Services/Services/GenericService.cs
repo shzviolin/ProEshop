@@ -71,4 +71,9 @@ public abstract class GenericService<TEntity> : IGenericService<TEntity> where T
             Query = items.Skip(skip).Take(pagination.Take)
         };
     }
+
+    public void SoftDelete(TEntity entity)
+    {
+        entity.IsDeleted = true;
+    }
 }
