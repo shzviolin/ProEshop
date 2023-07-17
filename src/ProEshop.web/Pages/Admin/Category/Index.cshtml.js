@@ -42,19 +42,27 @@
         $('.show-modal-form-button').click(function (e) {
             e.preventDefault();
             var urlToLoadForm = $(this).attr('href');
+            var customTitle = $(this).attr('custom-title');
+            if (customTitle == undefined) {
+                customTitle = $(this).text().trim();
+            }
+            $('#form-modal-place .modal-header h5').html(customTitle);
             showLoading();
             $.get(urlToLoadForm, function (data, status) {
-                hideLoading();
-                if (status == 'success') {
+                if (data.isSuccessful == false) {
+                    showToastr('warning', data.message);
+                }
+                else {
                     $('#form-modal-place .modal-body').html(data);
                     initializeTinyMCE();
                     initializeSelect2();
                     $.validator.unobtrusive.parse($('#form-modal-place form'));
                     $('#form-modal-place').modal('show');
                 }
-                else {
-                    showErrorMessage();
-                }
+            }).fail(function () {
+                showErrorMessage();
+            }).always(function () {
+                hideLoading();
             });
         });
     }
@@ -76,11 +84,13 @@
     }
 
     function fillDataTable() {
+        $('.data-table-place .data-table-body').remove();
+        $('.search-form-loading').attr('disabled', 'disabled');
+        $('.data-table-loading').removeClass('d-none');
         $.get(`${location.pathname}?handler=GetDataTable`, function (data, status) {
             $('.search-form-loading').removeAttr('disabled');
             $('.data-table-loading').addClass('d-none');
             if (status == 'success') {
-                $('.data-table-place .data-table-body').remove();
                 $('.data-table-place').append(data);
                 activatingPagination();
                 activatingGoToPage();
@@ -155,7 +165,8 @@
 
         $('.data-table-loading').removeClass('d-none');
         $('.data-table-body').html('');
-
+        $('[data-bs-toggle="tooltip"], .tooltip').tooltip('hide');
+        $('#record-not-found-box').remove();
         $.get(`${location.pathname}?handler=GetDataTable`, formData, function (data, status) {
             isMainPaginationClicked = false;
             isGoToPageClicked = false;
@@ -170,7 +181,7 @@
                     showToastr('warning', data.message);
                 }
                 else {
-                    $('.data-table-place .data-table-body').html(data);
+                    $('.data-table-place').append(data);
                     activatingPagination();
                     activatingGoToPage();
                     activatingModalForm();

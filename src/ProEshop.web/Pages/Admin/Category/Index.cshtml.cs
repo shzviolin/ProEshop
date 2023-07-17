@@ -37,6 +37,7 @@ namespace ProEShop.Web.Pages.Admin.Category
 
         public async Task<IActionResult> OnGetGetDataTableAsync(ShowCategoriesViewModel categories)
         {
+            Thread.Sleep(1000);
             if (!ModelState.IsValid)
             {
                 return Json(new JsonResultOperation(false, PublicConstantStrings.ModelStateErrorMessage)
@@ -97,6 +98,10 @@ namespace ProEShop.Web.Pages.Admin.Category
         public async Task<IActionResult> OnGetEdit(long id)
         {
             var model = await _categoryService.GetForEdit(id);
+            if(model is null)
+            {
+                return Json(new JsonResultOperation(false, PublicConstantStrings.RecordNotFoundMessage));
+            }
             model.MainCategories = _categoryService.GetCategoriesToShowInSelectBox()
              .CreateSelectListItem(firstItemText: "خودش دسته اصلی باشد");
 
