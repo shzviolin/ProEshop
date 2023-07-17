@@ -57,7 +57,7 @@ public class CategoryService : GenericService<Category>, ICategoryService
             Categories = await paginationResult.Query
             .Select(x => new ShowCategoryViewModel
             {
-                Id=x.Id,
+                Id = x.Id,
                 Title = x.Title,
                 ShowInMenus = x.ShowInMenus,
                 Parent = x.ParentId != null ? x.Parent.Title : "دسته اصلی",
@@ -69,9 +69,11 @@ public class CategoryService : GenericService<Category>, ICategoryService
         };
     }
 
-    public Dictionary<long, string> GetCategoriesToShowInSelectBox()
+    public Dictionary<long, string> GetCategoriesToShowInSelectBox(long? id)
     {
-        return _categories.ToDictionary(x => x.Id, x => x.Title);
+        return _categories
+            .Where(x => id == null || x.Id != id)
+            .ToDictionary(x => x.Id, x => x.Title);
     }
 
     public override async Task<DuplicateColumns> AddAsync(Category entity)

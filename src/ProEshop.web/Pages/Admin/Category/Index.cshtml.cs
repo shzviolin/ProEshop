@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ProEShop.Common;
 using ProEShop.Common.Constants;
@@ -37,7 +38,6 @@ namespace ProEShop.Web.Pages.Admin.Category
 
         public async Task<IActionResult> OnGetGetDataTableAsync(ShowCategoriesViewModel categories)
         {
-            Thread.Sleep(1000);
             if (!ModelState.IsValid)
             {
                 return Json(new JsonResultOperation(false, PublicConstantStrings.ModelStateErrorMessage)
@@ -49,15 +49,23 @@ namespace ProEShop.Web.Pages.Admin.Category
             return Partial("List", await _categoryService.GetCategories(categories));
         }
 
-        public IActionResult OnGetAdd()
+        public async Task<IActionResult> OnGetAdd(long id = 0)
         {
+            if (id > 0)
+            {
+                if (!await _categoryService.IsExistsByIdAsync(id))
+                {
+                    return Json(new JsonResultOperation(false, PublicConstantStrings.RecordNotFoundMessage));
+                }
+            }
             var model = new AddCategoryViewModel
             {
+                ParentId = id,
                 MainCategories = _categoryService.GetCategoriesToShowInSelectBox()
                 .CreateSelectListItem(firstItemText: "خودش دسته اصلی باشد")
             };
             return Partial("Add", model);
-        }
+        }   
         public async Task<IActionResult> OnPostAdd(AddCategoryViewModel model)
         {
             if (!ModelState.IsValid)
@@ -90,7 +98,7 @@ namespace ProEShop.Web.Pages.Admin.Category
                 });
             }
             await _uow.SaveChangesAsync();
-            await _uploadFile.SaveFile(model.Picture, pictureFileName,null, "images", "categories");
+            await _uploadFile.SaveFile(model.Picture, pictureFileName, null, "images", "categories");
 
             return Json(new JsonResultOperation(true, "دسته بندی مورد نظر با موفقیت اضافه شد."));
         }
@@ -98,11 +106,11 @@ namespace ProEShop.Web.Pages.Admin.Category
         public async Task<IActionResult> OnGetEdit(long id)
         {
             var model = await _categoryService.GetForEdit(id);
-            if(model is null)
+            if (model is null)
             {
                 return Json(new JsonResultOperation(false, PublicConstantStrings.RecordNotFoundMessage));
             }
-            model.MainCategories = _categoryService.GetCategoriesToShowInSelectBox()
+            model.MainCategories = _categoryService.GetCategoriesToShowInSelectBox(id)
              .CreateSelectListItem(firstItemText: "خودش دسته اصلی باشد");
 
             return Partial("Edit", model);
@@ -117,6 +125,12 @@ namespace ProEShop.Web.Pages.Admin.Category
                     Data = ModelState.GetModelStateErrors()
                 });
             }
+
+            if (model.Id == model.ParentId)
+            {
+                return Json(new JsonResultOperation(false, "یک رکورد نمی تواند والد خودش باشد"));
+            }
+
             string pictureFileName = null;
             if (model.Picture.IsFileUploaded())
                 pictureFileName = model.Picture.GenerateFileName();
@@ -144,13 +158,13 @@ namespace ProEShop.Web.Pages.Admin.Category
                 });
             }
             await _uow.SaveChangesAsync();
-            await _uploadFile.SaveFile(model.Picture, pictureFileName, oldFileName, "images","categories");
-            return Json(new JsonResultOperation(true,"دسته بندی مورد نظر با موفقیت ویرایش شد"));
+            await _uploadFile.SaveFile(model.Picture, pictureFileName, oldFileName, "images", "categories");
+            return Json(new JsonResultOperation(true, "دسته بندی مورد نظر با موفقیت ویرایش شد"));
         }
 
         public async Task<IActionResult> OnPostDeleteAsync(long elementId)
         {
-            var category =await _categoryService.FindByIdAsync(elementId);
+            var category = await _categoryService.FindByIdAsync(elementId);
             if (category == null)
             {
                 return Json(new JsonResultOperation(false, PublicConstantStrings.RecordNotFoundMessage));
@@ -158,6 +172,20 @@ namespace ProEShop.Web.Pages.Admin.Category
             _categoryService.SoftDelete(category);
             await _uow.SaveChangesAsync();
             return Json(new JsonResultOperation(true, "دسته بندی مورد نظر با موفقیت حذف شد"));
+        }
+
+        public async Task<IActionResult> OnPostDeletePicture(long elementId)
+        {
+            var category = await _categoryService.FindByIdAsync(elementId);
+            if (category == null)
+            {
+                return Json(new JsonResultOperation(false, PublicConstantStrings.RecordNotFoundMessage));
+            }
+            var fileName = category.Picture;
+            category.Picture = null;
+            await _uow.SaveChangesAsync();
+            _uploadFile.DeleteFile(fileName, "images", "categories");
+            return Json(new JsonResultOperation(true, "تصویر دسته بندی مورد نظر با موفقیت حذف شد."));
         }
     }
 }

@@ -12,16 +12,16 @@ public class UploadFileService : IUploadFileService
     {
         _environment = environment;
     }
-    public async Task SaveFile(IFormFile file, string fileName,string oldFileName, params string[] destinationDirectoryNames)
+    public async Task SaveFile(IFormFile file, string fileName, string oldFileName, params string[] destinationDirectoryNames)
     {
-        if(file == null || file.Length==0)
+        if (file == null || file.Length == 0)
         {
             return;
         }
 
         var uploadRootFolder = Path.Combine(_environment.WebRootPath);
 
-        if(destinationDirectoryNames is not null)
+        if (destinationDirectoryNames is not null)
         {
             foreach (var folderName in destinationDirectoryNames)
             {
@@ -29,7 +29,7 @@ public class UploadFileService : IUploadFileService
             }
         }
 
-        if(!Directory.Exists(uploadRootFolder))
+        if (!Directory.Exists(uploadRootFolder))
         {
             Directory.CreateDirectory(uploadRootFolder);
         }
@@ -46,5 +46,28 @@ public class UploadFileService : IUploadFileService
             //or else you're just doing synchronous operations on a background thread.
             useAsync: true);
         await file.CopyToAsync(fileStream);
+    }
+
+    public void DeleteFile(string fileName, params string[] destinationDirectoryNames)
+    {
+        if (fileName == null || destinationDirectoryNames == null || !destinationDirectoryNames.Any())
+        {
+            return;
+        }
+
+        var uploadRootFolder = Path.Combine(_environment.WebRootPath);
+
+        foreach (var folderName in destinationDirectoryNames)
+        {
+            uploadRootFolder = Path.Combine(uploadRootFolder, folderName);
+        }
+
+        if (!Directory.Exists(uploadRootFolder))
+        {
+            return;
+        }
+
+        var filePath = Path.Combine(uploadRootFolder, fileName);
+        File.Delete(filePath);
     }
 }
