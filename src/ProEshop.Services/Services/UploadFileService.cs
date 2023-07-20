@@ -68,6 +68,11 @@ public class UploadFileService : IUploadFileService
         }
 
         var filePath = Path.Combine(uploadRootFolder, fileName);
+        if (!File.Exists(filePath))
+        {
+            return;
+        }
+
         File.Delete(filePath);
     }
 }

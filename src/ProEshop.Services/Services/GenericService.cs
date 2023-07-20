@@ -76,4 +76,9 @@ public abstract class GenericService<TEntity> : IGenericService<TEntity> where T
     {
         entity.IsDeleted = true;
     }
+
+    public void Restore(TEntity entity)
+    {
+        entity.IsDeleted = false;
+    }
 }

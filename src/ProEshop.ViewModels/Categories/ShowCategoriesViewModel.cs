@@ -31,6 +31,8 @@ public class ShowCategoryViewModel
 
     [Display(Name = "تصویر")]
     public string Picture { get; set; }
+
+    public bool IsDeleted { get; set; }
 }
 
 public class SearchCategoriesViewModel

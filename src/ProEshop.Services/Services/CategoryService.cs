@@ -62,14 +62,15 @@ public class CategoryService : GenericService<Category>, ICategoryService
                 ShowInMenus = x.ShowInMenus,
                 Parent = x.ParentId != null ? x.Parent.Title : "دسته اصلی",
                 Slug = x.Slug,
-                Picture = x.Picture ?? "No Picture"
+                Picture = x.Picture ?? "No Picture",
+                IsDeleted=x.IsDeleted
             })
             .ToListAsync(),
             Pagination = paginationResult.pagination
         };
     }
 
-    public Dictionary<long, string> GetCategoriesToShowInSelectBox(long? id)
+    public Dictionary<long, string> GetCategoriesToShowInSelectBox(long? id = null)
     {
         return _categories
             .Where(x => id == null || x.Id != id)
