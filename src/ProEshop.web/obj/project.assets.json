@@ -5068,7 +5068,10 @@
         },
         "runtime": {
           "bin/placeholder/ProEShop.ViewModels.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },

@@ -3,6 +3,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ProEShop.ViewModels;
 
+public static class ViewModelConstants
+{
+    public const string AntiForgeryToken = "__RequestVerificationToken";
+}
 public enum DeletedStatus
 {
     [Display(Name = "نمایش داده نشوند")]

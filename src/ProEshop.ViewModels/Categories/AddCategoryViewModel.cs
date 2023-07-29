@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ProEShop.Common.Attributes;
 using ProEShop.Common.Constants;
@@ -12,6 +13,11 @@ using System.Threading.Tasks;
 namespace ProEShop.ViewModels.Categories;
 public class AddCategoryViewModel
 {
+    [PageRemote(PageName ="Index",
+        PageHandler ="CheckForTitle",
+        HttpMethod ="Post",
+        ErrorMessage =AttributesErrorMessages.RemoteMessage,
+        AdditionalFields =ViewModelConstants.AntiForgeryToken)]
     [Display(Name ="عنوان")]
     [Required(ErrorMessage =AttributesErrorMessages.RequiredMessage)]
     [MaxLength(100)]
@@ -20,6 +26,11 @@ public class AddCategoryViewModel
     [Display(Name = "توضیحات")]
     public string Description { get; set; }
 
+    [PageRemote(PageName = "Index",
+        PageHandler = "CheckForSlug",
+        HttpMethod = "Post",
+        ErrorMessage = AttributesErrorMessages.RemoteMessage,
+        AdditionalFields = ViewModelConstants.AntiForgeryToken)]
     [Display(Name = "آدرس دسته بندی")]
     [Required(ErrorMessage = AttributesErrorMessages.RequiredMessage)]
     [MaxLength(130,ErrorMessage =AttributesErrorMessages.MaxLengthMessage)]

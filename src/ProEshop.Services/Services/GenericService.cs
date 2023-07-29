@@ -46,8 +46,13 @@ public abstract class GenericService<TEntity> : IGenericService<TEntity> where T
     public async Task<TEntity> FindByIdAsync(long id)
         => await _entities.FindAsync(id);
 
-    public Task<bool> IsExistsByIdAsync(long id)
-        => _entities.AnyAsync(x => x.Id == id);
+    public async Task<bool> IsExistsBy(string propertyToFilter, object propertyValue, long? id = null)
+    {
+        var expression = ExpressionHelpers.CreateExpression<TEntity>(propertyToFilter, propertyValue);
+        return await _entities
+            .Where(x => id == null || x.Id != id)//.Where(x => id != null ? x.Id != id : true)
+            .AnyAsync(expression);
+    }
 
     public async Task<PaginationResultViewModel<T>> GenericPaginationAsync<T>(IQueryable<T> items, PaginationViewModel pagination)
     {

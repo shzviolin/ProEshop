@@ -6,6 +6,7 @@ using ProEShop.Common.Constants;
 using ProEShop.Common.Helpers;
 using ProEShop.Common.IdentityToolkit;
 using ProEShop.DataLayer.Context;
+using ProEShop.Entities;
 using ProEShop.Services.Contracts;
 using ProEShop.ViewModels.Categories;
 using static SkiaSharp.HarfBuzz.SKShaper;
@@ -53,7 +54,7 @@ namespace ProEShop.Web.Pages.Admin.Category
         {
             if (id > 0)
             {
-                if (!await _categoryService.IsExistsByIdAsync(id))
+                if (!await _categoryService.IsExistsBy(nameof(Entities.Category.Id), id)) ;
                 {
                     return Json(new JsonResultOperation(false, PublicConstantStrings.RecordNotFoundMessage));
                 }
@@ -65,7 +66,7 @@ namespace ProEShop.Web.Pages.Admin.Category
                 .CreateSelectListItem(firstItemText: "خودش دسته اصلی باشد")
             };
             return Partial("Add", model);
-        }   
+        }
         public async Task<IActionResult> OnPostAdd(AddCategoryViewModel model)
         {
             if (!ModelState.IsValid)
@@ -198,6 +199,26 @@ namespace ProEShop.Web.Pages.Admin.Category
             _categoryService.Restore(category);
             await _uow.SaveChangesAsync();
             return Json(new JsonResultOperation(true, "دسته بندی مورد نظر با موفقیت بازگردانی شد"));
+        }
+
+        public async Task<IActionResult> OnPostCheckForTitle(string title)
+        {
+            return Json(!await _categoryService.IsExistsBy(nameof(Entities.Category.Title), title));
+        }
+
+        public async Task<IActionResult> OnPostCheckForSlug(string slug)
+        {
+            return Json(!await _categoryService.IsExistsBy(nameof(Entities.Category.Slug), slug));
+        }
+
+        public async Task<IActionResult> OnPostCheckForTitleOnEdit(string title, long id)
+        {
+            return Json(!await _categoryService.IsExistsBy(nameof(Entities.Category.Title), title, id));
+        }
+
+        public async Task<IActionResult> OnPostCheckForSlugOnEdit(string slug, long id)
+        {
+            return Json(!await _categoryService.IsExistsBy(nameof(Entities.Category.Slug), slug, id));
         }
     }
 }
