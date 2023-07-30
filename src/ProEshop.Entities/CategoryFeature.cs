@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace ProEShop.Entities;
 
 [Table("CategoryFeatures")]
-public class CategoryFeature : EntityBase, IAuditableEntity
+public class CategoryFeature : IAuditableEntity
 {
     #region Properties
     public long CategoryId { get; set; }

@@ -17,7 +17,7 @@ public class CategoryFeatureService : GenericService<Category>, ICategoryFeature
         _categoryFeatures = uow.Set<CategoryFeature>();
     }
 
-    public Task<ShowCategoryFeatureViewModel> GetCategoryFeatures(ShowCategoriesViewModel model)
+    public Task<ShowCategoryFeatureViewModel> GetCategoryFeatures(ShowCategoryFeaturesViewModel model)
     {
         throw new NotImplementedException();
     }

@@ -1,4 +1,6 @@
-﻿using ProEShop.Common.Constants;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using ProEShop.Common.Constants;
+using ProEShop.ViewModels.Categories;
 using System.ComponentModel.DataAnnotations;
 
 namespace ProEShop.ViewModels.CategoryFeatures;
@@ -6,8 +8,18 @@ public class ShowCategoryFeaturesViewModel
 {
     public List<ShowCategoryFeatureViewModel> CategoryFeature { get; set; }
 
+    public SearchCategoryFeaturesViewModel SearchCategoryFeatures { get; set; }
+    = new();
+
     public PaginationViewModel Pagination { get; set; }
      = new();
+}
+
+public class SearchCategoryFeaturesViewModel
+{
+    [Display(Name = "دسته بندی")]
+    public long CategoryId { get; set; }
+    public List<SelectListItem> Categories { get; set; }
 }
 
 public class ShowCategoryFeatureViewModel

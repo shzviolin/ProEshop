@@ -4,8 +4,9 @@ using ProEShop.Common.Constants;
 using ProEShop.Common.Helpers;
 using ProEShop.DataLayer.Context;
 using ProEShop.Services.Contracts;
-using ProEShop.ViewModels.Categories;
+using ProEShop.Common.IdentityToolkit;
 using ProEShop.ViewModels.CategoryFeatures;
+using ProEShop.Common;
 
 namespace ProEShop.Web.Pages.Admin.CategoryFeature
 {
@@ -13,14 +14,29 @@ namespace ProEShop.Web.Pages.Admin.CategoryFeature
     {
         #region Constructor
         private readonly ICategoryFeatureService _categoryFeatureService;
+        private readonly ICategoryService _categoryService;
         private readonly IUnitOfWork _uow;
+
+        public IndexModel(
+            ICategoryFeatureService categoryFeatureService,
+            ICategoryService categoryService,
+            IUnitOfWork uow)
+        {
+            _categoryFeatureService = categoryFeatureService;
+            _categoryService = categoryService;
+            _uow = uow;
+        }
         #endregion
 
-        public void OnGet()
+        public ShowCategoryFeaturesViewModel categoryFeatures { get; set; }
+        = new();
+        public async Task OnGet()
         {
+            var categories = await _categoryService.GetCategoriesToShowInSelectBoxAsync();
+            categoryFeatures.SearchCategoryFeatures.Categories = categories.CreateSelectListItem();
         }
 
-        public async Task<IActionResult> OnGetGetDataTableAsync(ShowCategoryFeatureViewModel categoryFeature)
+        public async Task<IActionResult> OnGetGetDataTableAsync(ShowCategoryFeaturesViewModel categoryFeatures)
         {
             if (!ModelState.IsValid)
             {
@@ -29,7 +45,7 @@ namespace ProEShop.Web.Pages.Admin.CategoryFeature
                     Data = ModelState.GetModelStateErrors()
                 });
             }
-            return Partial("List", await _categoryFeatureService.GetCategoryFeatures(categoryFeature));
+            return Partial("List", await _categoryFeatureService.GetCategoryFeatures(categoryFeatures));
         }
     }
 }
