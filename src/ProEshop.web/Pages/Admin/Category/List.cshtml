@@ -26,7 +26,7 @@
                             @if (category.Picture == "No Picture")
                             {
                                 <div class="d-grid">
-                                    <span class="btn btn-warning" type="button">خیر</span>
+                                    <span class="btn btn-warning" type="button">بدون تصویر</span>
                                 </div>
                             }
                             else
@@ -110,6 +110,9 @@
                         @Model.Pagination.PagesCount
                     </button>
                 }
+            </div>
+            <div>
+                <select id="page-count-selectbox" class="form-select" asp-for="Pagination.PageCount" asp-items="Html.GetEnumSelectList<ProEShop.ViewModels.PageCount>()"></select>
             </div>
         </div>
         <div class="col-10 col-sm-6 col-md-4 col-xl-3 m-auto">

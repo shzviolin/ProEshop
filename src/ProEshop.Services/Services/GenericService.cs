@@ -58,9 +58,15 @@ public abstract class GenericService<TEntity> : IGenericService<TEntity> where T
     {
         if (pagination.CurrentPage < 1)
             pagination.CurrentPage = 1;
-
+        var take = pagination.PageCount switch
+        {
+            PageCount.TwentyFive => 25,
+            PageCount.Fifty => 50,
+            PageCount.Hundred => 100,
+            _ => 10
+        };
         var itemsCount = await items.LongCountAsync();
-        var pagesCount = (int)Math.Ceiling((decimal)itemsCount / pagination.Take);
+        var pagesCount = (int)Math.Ceiling((decimal)itemsCount / take);
 
         if (pagesCount <= 0)
             pagesCount = 1;
@@ -68,12 +74,12 @@ public abstract class GenericService<TEntity> : IGenericService<TEntity> where T
         if (pagination.CurrentPage > pagesCount)
             pagination.CurrentPage = pagesCount;
 
-        var skip = (pagination.CurrentPage - 1) * pagination.Take;
+        var skip = (pagination.CurrentPage - 1) * take;
         pagination.PagesCount = pagesCount;
         return new PaginationResultViewModel<T>
         {
             pagination = pagination,
-            Query = items.Skip(skip).Take(pagination.Take)
+            Query = items.Skip(skip).Take(take)
         };
     }
 

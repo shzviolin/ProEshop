@@ -100,6 +100,7 @@
                 activatingGoToPage();
                 activatingModalForm();
                 activaitingDeleteButtons();
+                activatingPageCount();
                 enablingTooltips();
             }
             else {
@@ -148,6 +149,14 @@
         });
     });
 
+    function activatingPageCount() {
+        $('#page-count-selectbox').change(function () {
+            var pageCountValue = this.value;
+            $('form.search-form-via-ajax input[name$="Pagination.PageCount"]').val(pageCountValue);
+            $('form.search-form-via-ajax').submit();
+        });
+    }
+
     var isMainPaginationClicked = false;
     var isGoToPageClicked = false;
 
@@ -161,7 +170,6 @@
         else if (!isMainPaginationClicked) {
             currentForm.find('input[name$="Pagination.CurrentPage"]').val(1);
         }
-
         const formData = currentForm.serializeArray();
         //show loading and activation button
         currentForm.find('.search-form-submit-button').attr('disabled', 'disabled');
@@ -190,6 +198,7 @@
                     activatingGoToPage();
                     activatingModalForm();
                     activaitingDeleteButtons();
+                    activatingPageCount();
                     enablingTooltips();
                 }
             }
