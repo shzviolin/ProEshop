@@ -50,6 +50,8 @@ public class CategoryService : GenericService<Category>, ICategoryService
                 break;
         }
 
+        categories = categories.CreateOrderByExpression(model.SearchCategories.Sorting.ToString(), model.SearchCategories.SortingOrder.ToString());
+
         var paginationResult = await GenericPaginationAsync(categories, model.Pagination);
 
         return new()

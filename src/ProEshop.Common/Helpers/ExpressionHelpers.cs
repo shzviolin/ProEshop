@@ -19,4 +19,14 @@ public static class ExpressionHelpers
         var equal = Expression.Equal(property, constantValue);
         return Expression.Lambda<Func<T, bool>>(equal, parameter);
     }
+
+    public static IOrderedQueryable<T> CreateOrderByExpression<T>(this IQueryable<T> query, string propertyName, string isAsc)
+    {
+        var parameter = Expression.Parameter(typeof(T),"x");
+        var conversion = Expression.Convert(Expression.Property(parameter, propertyName), typeof(object));
+        var expresion = Expression.Lambda<Func<T, object>>(conversion, parameter);
+        IOrderedQueryable<T> result = null;
+        result = isAsc == "Asc" ? query.OrderBy(expresion) : query.OrderByDescending(expresion);
+        return result;
+    }
 }
