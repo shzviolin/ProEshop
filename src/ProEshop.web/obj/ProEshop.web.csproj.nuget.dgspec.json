@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "B:\\ProEShop\\src\\ProEShop.Web\\ProEShop.Web.csproj": {}
+    "B:\\ProEShop\\src\\ProEShop.Web\\ProEshop.web.csproj": {}
   },
   "projects": {
     "B:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj": {
@@ -474,12 +474,12 @@
         }
       }
     },
-    "B:\\ProEShop\\src\\ProEShop.Web\\ProEShop.Web.csproj": {
+    "B:\\ProEShop\\src\\ProEShop.Web\\ProEshop.web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\ProEShop\\src\\ProEShop.Web\\ProEShop.Web.csproj",
-        "projectName": "ProEShop.Web",
-        "projectPath": "B:\\ProEShop\\src\\ProEShop.Web\\ProEShop.Web.csproj",
+        "projectUniqueName": "B:\\ProEShop\\src\\ProEShop.Web\\ProEshop.web.csproj",
+        "projectName": "ProEshop.web",
+        "projectPath": "B:\\ProEShop\\src\\ProEShop.Web\\ProEshop.web.csproj",
         "packagesPath": "C:\\Users\\aebra\\.nuget\\packages\\",
         "outputPath": "B:\\ProEShop\\src\\ProEShop.Web\\obj\\",
         "projectStyle": "PackageReference",
