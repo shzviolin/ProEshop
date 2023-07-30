@@ -17,9 +17,23 @@ public class CategoryFeatureService : GenericService<Category>, ICategoryFeature
         _categoryFeatures = uow.Set<CategoryFeature>();
     }
 
-    public Task<ShowCategoryFeatureViewModel> GetCategoryFeatures(ShowCategoryFeaturesViewModel model)
+    public async Task<ShowCategoryFeaturesViewModel> GetCategoryFeatures(ShowCategoryFeaturesViewModel model)
     {
-        throw new NotImplementedException();
+        var categoryFeatures = _categoryFeatures.AsQueryable();
+
+        var paginationResult = await GenericPaginationAsync(categoryFeatures, model.Pagination);
+
+        return new()
+        {
+            CategoryFeatures = await paginationResult.Query
+            .Select(x => new ShowCategoryFeatureViewModel
+            {
+                Title = x.Feature.Title,
+            })
+            .ToListAsync(),
+            Pagination = paginationResult.pagination
+        };
     }
+
 }
 
