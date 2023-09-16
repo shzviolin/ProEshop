@@ -99,13 +99,10 @@ namespace ProEShop.DataLayer.Migrations
 
             modelBuilder.Entity("ProEShop.Entities.CategoryFeature", b =>
                 {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<long>("CategoryId")
                         .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
-
-                    b.Property<long>("CategoryId")
+                    b.Property<long>("FeatureId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("CreatedByBrowserName")
@@ -122,12 +119,6 @@ namespace ProEShop.DataLayer.Migrations
                     b.Property<DateTime>("CreatedDateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("FeatureId")
-                        .HasColumnType("bigint");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
                     b.Property<string>("ModifiedByBrowserName")
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)");
@@ -142,9 +133,7 @@ namespace ProEShop.DataLayer.Migrations
                     b.Property<DateTime?>("ModifiedDateTime")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
+                    b.HasKey("CategoryId", "FeatureId");
 
                     b.HasIndex("FeatureId");
 
@@ -196,6 +185,9 @@ namespace ProEShop.DataLayer.Migrations
                         .HasColumnType("nvarchar(150)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Title")
+                        .IsUnique();
 
                     b.ToTable("Features");
                 });

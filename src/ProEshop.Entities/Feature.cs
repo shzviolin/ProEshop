@@ -1,4 +1,5 @@
-﻿using ProEShop.Entities.AuditableEntity;
+﻿using Microsoft.EntityFrameworkCore;
+using ProEShop.Entities.AuditableEntity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 namespace ProEShop.Entities;
 
 [Table("Features")]
+[Index(nameof(Feature.Title), IsUnique = true)]
 public class Feature : EntityBase, IAuditableEntity
 {
     #region Properties
@@ -20,5 +22,6 @@ public class Feature : EntityBase, IAuditableEntity
 
     #region Relations
     public ICollection<CategoryFeature> CategoryFeatures { get; set; }
+        = new List<CategoryFeature>();
     #endregion
 }

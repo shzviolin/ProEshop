@@ -1,10 +1,7 @@
 @font-face {
     font-family: Vazird;
     src: url('fonts/vazir/Vazir-Regular.eot');
-    src: url('fonts/vazir/Vazir-Regular.eot?#iefix') format('embedded-opentype'),
-         url('fonts/vazir/Vazir-Regular.woff2') format('woff2'),
-         url('fonts/vazir/Vazir-Regular.woff') format('woff'),
-         url('fonts/vazir/Vazir-Regular.ttf') format('truetype');
+    src: url('fonts/vazir/Vazir-Regular.eot?#iefix') format('embedded-opentype'), url('fonts/vazir/Vazir-Regular.woff2') format('woff2'), url('fonts/vazir/Vazir-Regular.woff') format('woff'), url('fonts/vazir/Vazir-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -17,23 +14,23 @@ body {
     background-color: #f5f5f5;
 }
 
-.custom-box-shadow{
+.custom-box-shadow {
     box-shadow: 0px 2px 12px 1px rgb(0 0 0 / .47);
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-.rem1and3{
+.rem1and3 {
     font-size: 1.3rem;
 }
 
-.rem0and75{
+.rem0and75 {
     font-size: 0.75rem;
 }
 
-.rem0and9{
+.rem0and9 {
     font-size: 0.9rem;
 }
 
@@ -45,14 +42,18 @@ a{
     font-size: .9rem;
 }
 
-span.select2-dropdown.select2-dropdown--below{
-    left:-17px;
+span.select2-dropdown.select2-dropdown--below {
+    left: -17px;
 }
 
-.max-width-200{
-    max-width:200px;
+.max-width-200 {
+    max-width: 200px;
 }
 
-.rtl-direction{
-    direction:rtl;
+.rtl-direction {
+    direction: rtl;
+}
+
+.ui-autocomplete {
+    z-index: 5000;
 }

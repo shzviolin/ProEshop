@@ -191,6 +191,13 @@ $(function () {
         });
     }
 
+    function initializingAutocomplete() {
+        $('.autocomplete').autocomplete({
+            source: `${location.pathname}?handler=AutocompleteSearch`,
+            minLenght: 2,
+            delay: 500
+        });
+    }
 
     function activatingModalForm() {
         $('.show-modal-form-button').click(function (e) {
@@ -210,6 +217,7 @@ $(function () {
                     $('#form-modal-place .modal-body').html(data);
                     initializeTinyMCE();
                     initializeSelect2();
+                    initializingAutocomplete()
                     $.validator.unobtrusive.parse($('#form-modal-place form'));
                     $('#form-modal-place').modal('show');
                 }
