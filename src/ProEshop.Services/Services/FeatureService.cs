@@ -16,11 +16,12 @@ public class FeatureService : GenericService<Feature>, IFeatureService
         _features = uow.Set<Feature>();
     }
 
+
     public async Task<ShowFeaturesViewModel> GetFeatures(ShowFeaturesViewModel model)
     {
         var features = _features.AsQueryable();
 
-        var searchedTitle=model.SearchFeatures.Title;
+        var searchedTitle = model.SearchFeatures.Title;
         if (!string.IsNullOrWhiteSpace(searchedTitle))
             features = features.Where(x => x.Title.Contains(searchedTitle));
 
@@ -38,11 +39,12 @@ public class FeatureService : GenericService<Feature>, IFeatureService
             .Select(x => new ShowFeatureViewModel
             {
                 Title = x.Title,
+                CategoryId = model.SearchFeatures.CategoryId,
+                FeatureId = x.Id
             })
             .ToListAsync(),
             Pagination = paginationResult.pagination
         };
     }
-
 }
 

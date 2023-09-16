@@ -158,6 +158,8 @@ $(function () {
             var currentForm = $(this).parent();
             var customMessage = $(this).attr('custom-message');
 
+            var formData = currentForm.serializeArray();
+
             Swal.fire({
                 title: 'اعلان',
                 text: customMessage == undefined ? 'آیا از حذف این مورد مطمئن هستید؟' : customMessage,
@@ -169,12 +171,9 @@ $(function () {
                 allowOutsideClick: false
             }).then((result) => {
                 if (result.isConfirmed) {
-                    var data = {
-                        elementId: currentForm.find('input:first').val(),
-                        __RequestVerificationToken: currentForm.find('input:last').val()
-                    }
+
                     showLoading();
-                    $.post(currentForm.attr('action'), data, function (data, status) {
+                    $.post(currentForm.attr('action'), formData, function (data, status) {
                         if (data.isSuccessful == false) {
                             showToastr('warning', data.message);
                         }
