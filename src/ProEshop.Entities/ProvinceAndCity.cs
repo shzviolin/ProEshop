@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ProEShop.Entities;
 
-[Table("ProvinceAndCities")]
+[Table("ProvincesAndCities")]
 public class ProvinceAndCity : EntityBase, IAuditableEntity
 {
     #region Properties
