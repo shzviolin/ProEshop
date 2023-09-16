@@ -37,6 +37,7 @@ public class ShowFeatureViewModel
     [Display(Name = "عنوان")]
     public string Title { get; set; }
     public long CategoryId { get; set; }
+    [Display(Name = "شناسه")]
     public long FeatureId { get; set; }
 }
 
