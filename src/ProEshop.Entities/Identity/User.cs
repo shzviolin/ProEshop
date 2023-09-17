@@ -33,6 +33,8 @@ public class User : IdentityUser<long>, IAuditableEntity
     public string Avatar { get; set; }
 
     public DateTime SendSmsLastTime { get; set; }
+
+    public bool IsSeller { get; set; }
     #endregion
 
 
