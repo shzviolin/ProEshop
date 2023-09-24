@@ -8,9 +8,11 @@ namespace ProEShop.Entities.Identity;
 public class User : IdentityUser<long>, IAuditableEntity
 {
     #region Properties
+    [Display(Name = "نام")]
     [MaxLength(200)]
     public string FirstName { get; set; }
 
+    [Display(Name = "نام خانوادگی")]
     [MaxLength(200)]
     public string LastName { get; set; }
 
@@ -21,11 +23,14 @@ public class User : IdentityUser<long>, IAuditableEntity
 
     public DateTime CreatedDateTime { get; set; }
 
+    [Display(Name = "کد ملی")]
     [MaxLength(11)]
     public string NationalCode { get; set; }
 
+    [Display(Name = "تاریخ تولد")]
     public DateTime BirthDate { get; set; }
 
+    [Display(Name = "جنسیت")]
     public Gender Gender { get; set; }
 
     [Required]
