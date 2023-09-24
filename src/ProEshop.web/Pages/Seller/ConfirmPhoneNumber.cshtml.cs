@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ProEShop.Common.Helpers;
+using ProEShop.Common.IdentityToolkit;
 using ProEShop.DataLayer.Context;
 using ProEShop.Services.Contracts.Identity;
 using ProEShop.ViewModels.Sellers;
@@ -12,17 +13,21 @@ namespace ProEShop.Web.Pages.Seller
     {
         #region Constructor
         private readonly IApplicationUserManager _userManager;
+        private readonly IApplicationSignInManager _signInManager;
         private readonly IUnitOfWork _uow;
 
         public ConfirmPhoneNumberModel(
             IApplicationUserManager userManager,
+            IApplicationSignInManager signInManager,
             IUnitOfWork uow)
         {
             _userManager = userManager;
             _uow = uow;
+            _signInManager = signInManager;
         }
         #endregion
 
+        [BindProperty]
         public ConfirmSellerPhoneNumberViewModel Confirmation { get; set; }
             = new();
 
@@ -48,6 +53,31 @@ namespace ProEShop.Web.Pages.Seller
             Confirmation.SendSmsLastTimeSecond = sec;
             Confirmation.PhoneNumber = phoneNumber;
             return Page();
+        }
+
+        public async Task<IActionResult> OnPost()
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(new JsonResultOperation(false, "مقادیر را به درستی وارد نمایید")
+                {
+                    Data = ModelState.GetModelStateErrors()
+                }) ;
+            }
+
+            var user = await _userManager.FindByNameAsync(Confirmation.PhoneNumber);
+            if (user is null)
+            {
+                return Json(new JsonResultOperation(false,"شماره تلفن مورد نظر یافت نشد"));
+            }
+
+            var result = await _userManager.VerifyChangePhoneNumberTokenAsync(user, Confirmation.ActivationCode, Confirmation.PhoneNumber);
+            if (!result)
+            {
+                return Json(new JsonResultOperation(false, "کد وارد شده صحیح نمی باشد"));
+            }
+            await _signInManager.SignInAsync(user, true);
+            return Json(new JsonResultOperation(true, "شما با موفقیت وارد شدید"));
         }
 
         public async Task<IActionResult> OnPostReSendSellerSmsActivation(string phoneNumber)
