@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ProEShop.Common.Attributes;
 using ProEShop.Common.Constants;
@@ -8,6 +9,11 @@ namespace ProEShop.ViewModels.Sellers;
 
 public class CreateSellerViewModel
 {
+    [Display(Name = "شماره تلفن")]
+    [HiddenInput]
+    [Required(ErrorMessage = AttributesErrorMessages.RequiredMessage)]
+    public string PhoneNumber { get; set; }
+
     [Display(Name = "شخص حقیقی / حقوقی")]
     public bool IsRealPerson { get; set; }
 
@@ -82,6 +88,7 @@ public class CreateSellerViewModel
     [Display(Name = "کد پستی")]
     [Required(ErrorMessage = AttributesErrorMessages.RequiredMessage)]
     [MaxLength(10, ErrorMessage = AttributesErrorMessages.MaxLengthMessage)]
+    [RegularExpression(@"[\d]{10}$",ErrorMessage =AttributesErrorMessages.RegularExpressionMessage)]
     public string PostalCode { get; set; }
 
     public List<SelectListItem> Provinces { get; set; }

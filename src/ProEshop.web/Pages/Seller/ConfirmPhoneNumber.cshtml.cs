@@ -62,13 +62,13 @@ namespace ProEShop.Web.Pages.Seller
                 return Json(new JsonResultOperation(false, "مقادیر را به درستی وارد نمایید")
                 {
                     Data = ModelState.GetModelStateErrors()
-                }) ;
+                });
             }
 
             var user = await _userManager.FindByNameAsync(Confirmation.PhoneNumber);
             if (user is null)
             {
-                return Json(new JsonResultOperation(false,"شماره تلفن مورد نظر یافت نشد"));
+                return Json(new JsonResultOperation(false, "شماره تلفن مورد نظر یافت نشد"));
             }
 
             var result = await _userManager.VerifyChangePhoneNumberTokenAsync(user, Confirmation.ActivationCode, Confirmation.PhoneNumber);
@@ -76,8 +76,10 @@ namespace ProEShop.Web.Pages.Seller
             {
                 return Json(new JsonResultOperation(false, "کد وارد شده صحیح نمی باشد"));
             }
-            await _signInManager.SignInAsync(user, true);
-            return Json(new JsonResultOperation(true, "شما با موفقیت وارد شدید"));
+            return Json(new JsonResultOperation(true, "شماره تلفن شما با موفقیت تایید شد")
+            {
+                Data = Confirmation.PhoneNumber
+            });
         }
 
         public async Task<IActionResult> OnPostReSendSellerSmsActivation(string phoneNumber)

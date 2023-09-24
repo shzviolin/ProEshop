@@ -122,5 +122,7 @@ public interface IApplicationUserManager : IDisposable
 
     #region CustomClass
     Task<DateTime?> GetSendSmsLastTimeAsync(string phoneNumber);
+
+    Task<bool> CheckForUserIsSeller(string phoneNumber);
     #endregion
 }
