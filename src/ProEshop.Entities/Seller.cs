@@ -61,6 +61,7 @@ public class Seller : EntityBase, IAuditableEntity
     [MaxLength(50)]
     public string IdCartPicture { get; set; }
 
+    [Required]
     [MaxLength(24)]
     public string ShabaNumber { get; set; }
 
@@ -71,16 +72,16 @@ public class Seller : EntityBase, IAuditableEntity
     [MaxLength(300)]
     public string Website { get; set; }
 
-    public ProvinceAndCity Province { get; set; }
+    public long ProvinceId { get; set; }
 
-    public ProvinceAndCity City { get; set; }
+    public long CityId { get; set; }
 
     [Required]
     [MaxLength(300)]
     public string Address { get; set; }
 
     [Required]
-    [MaxLength(11)]
+    [MaxLength(10)]
     public string PostalCode { get; set; }
 
     [MaxLength(100)]
@@ -100,6 +101,9 @@ public class Seller : EntityBase, IAuditableEntity
 
     #region Relations
     public User User { get; set; }
+    public ProvinceAndCity Province { get; set; }
+
+    public ProvinceAndCity City { get; set; }
     #endregion
 }
 

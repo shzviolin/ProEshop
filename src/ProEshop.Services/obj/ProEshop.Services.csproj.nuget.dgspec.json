@@ -355,6 +355,9 @@
             "projectReferences": {
               "B:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj": {
                 "projectPath": "B:\\ProEShop\\src\\ProEShop.Common\\ProEShop.Common.csproj"
+              },
+              "B:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj": {
+                "projectPath": "B:\\ProEShop\\src\\ProEShop.Entities\\ProEShop.Entities.csproj"
               }
             }
           }

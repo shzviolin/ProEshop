@@ -339,8 +339,7 @@ $(document).on('submit', 'form.public-ajax-form', function (e) {
                 showToastr('warning', data.message);
             }
             else {
-                showToastr('success', data.message);
-                window[functionName]();
+                window[functionName](data.message);
             }
         },
         complete: function () {
