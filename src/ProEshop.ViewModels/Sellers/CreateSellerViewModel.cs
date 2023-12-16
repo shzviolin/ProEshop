@@ -53,6 +53,7 @@ public class CreateSellerViewModel
     public string RegisterNumber { get; set; }
 
     [Display(Name = "کد اقتصادی")]
+    [LtrDirectionAttribute]
     [MaxLength(12, ErrorMessage = AttributesErrorMessages.MaxLengthMessage)]
     public string EconomicCode { get; set; }
 
@@ -61,6 +62,8 @@ public class CreateSellerViewModel
     public string SignatureOwners { get; set; }
 
     [Display(Name = "شناسه ملی")]
+    [LtrDirectionAttribute]
+    [RegularExpression(@"^[\d]$", ErrorMessage = AttributesErrorMessages.RegularExpressionMessage)]
     [MaxLength(30, ErrorMessage = AttributesErrorMessages.MaxLengthMessage)]
     public string NationalId { get; set; }
 
@@ -107,13 +110,17 @@ public class CreateSellerViewModel
     [MaxLength(200, ErrorMessage = AttributesErrorMessages.MaxLengthMessage)]
     public string Website { get; set; }
 
+    [Display(Name = "استان")]
+    [Range(1, long.MaxValue, ErrorMessage = AttributesErrorMessages.RequiredMessage)]
     public long ProvinceId { get; set; }
 
+    [Display(Name = "شهرستان")]
+    [Range(1, long.MaxValue, ErrorMessage = AttributesErrorMessages.RequiredMessage)]
     public long CityId { get; set; }
 
     [Display(Name = "آدرس کامل")]
-    [Required(ErrorMessage = AttributesErrorMessages.RequiredMessage)]
-    [MaxLength(300, ErrorMessage = AttributesErrorMessages.MaxLengthMessage)]
+    [Required(ErrorMessage = "لطفاآدرس را وارد نمایید")]
+    [MaxLength(300, ErrorMessage = "آدرس نباید بیشتر از {1} کاراکتر باشد")]
     public string Address { get; set; }
 
     [Display(Name = "کد پستی")]
@@ -126,5 +133,6 @@ public class CreateSellerViewModel
     public List<SelectListItem> Provinces { get; set; }
 
     [Display(Name = "قوانین و قرارداد را به صورت کامل خوانده و قبول دارم")]
+    [Range(typeof(bool),"true","true",ErrorMessage = "شما باید قوانین و مقررات را تایید نمایید")]
     public bool AcceptTerms { get; set; }
 }
