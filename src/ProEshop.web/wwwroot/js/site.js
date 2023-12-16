@@ -427,3 +427,25 @@ function fillValidationForm(errors, currentForm) {
 }
 
 // End Ajax operations
+
+$.validator.setDefaults({
+    ignore: [],
+    // other default options
+});
+
+$('input[data-val-ltrdirection="true"]').attr('dir', 'ltr');
+
+$('input[data-val-isimage]').attr('accept', 'image/*');
+
+$('.image-preview-input').change(function () {
+    var selectedFile = this.files[0];
+    var imagePreviewBox = $(this).attr('image-preview-box');
+    if (selectedFile && selectedFile.size > 0) {
+        $(`#${imagePreviewBox}`).removeClass('d-none');
+        $(`#${imagePreviewBox} img`).attr('src', URL.createObjectURL(selectedFile));
+    }
+    else {
+        $(`#${imagePreviewBox} img`).attr('src', '');
+        $(`#${imagePreviewBox}`).addClass('d-none');
+    }
+});
