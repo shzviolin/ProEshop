@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using ProEShop.Entities.AuditableEntity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -15,7 +16,6 @@ public class Category : EntityBase, IAuditableEntity
     [MaxLength(100)]
     public string Title { get; set; }
 
-    [Column(TypeName ="ntext")]
     public string Description { get; set; }
 
     [Required]

@@ -48,7 +48,6 @@ public class Seller : EntityBase, IAuditableEntity
     [MaxLength(200)]
     public string ShopName { get; set; }
 
-    [Column(TypeName = "ntext")]
     public string AboutSeller { get; set; }
 
     [MaxLength(50)]
