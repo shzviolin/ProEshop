@@ -11,7 +11,7 @@ namespace ProEShop.ViewModels.Sellers;
 public class CreateSellerViewModel
 {
     [Display(Name = "نام")]
-    [RegularExpression(@"^[\u0600-\u06FF,\u0590-\u05FF\s]*$", ErrorMessage ="لطفا تنها از حروف فارسی استفاده نمائید")]
+    [RegularExpression(@"^[\u0600-\u06FF,\u0590-\u05FF\s]*$", ErrorMessage = "لطفا تنها از حروف فارسی استفاده نمائید")]
     [Required(ErrorMessage = AttributesErrorMessages.RequiredMessage)]
     [MaxLength(200, ErrorMessage = AttributesErrorMessages.MaxLengthMessage)]
     public string FirstName { get; set; }
@@ -25,7 +25,7 @@ public class CreateSellerViewModel
     [Display(Name = "کد ملی")]
     [LtrDirectionAttribute]
     [Required(ErrorMessage = AttributesErrorMessages.RequiredMessage)]
-    [MaxLength(11, ErrorMessage = AttributesErrorMessages.MaxLengthMessage)]
+    [MaxLength(10, ErrorMessage = AttributesErrorMessages.MaxLengthMessage)]
     public string NationalCode { get; set; }
 
     [Display(Name = "تاریخ تولد")]
@@ -63,14 +63,18 @@ public class CreateSellerViewModel
 
     [Display(Name = "شناسه ملی")]
     [LtrDirectionAttribute]
-    [RegularExpression(@"^[\d]$", ErrorMessage = AttributesErrorMessages.RegularExpressionMessage)]
+    [RegularExpression(@"^[\d]+$", ErrorMessage = AttributesErrorMessages.RegularExpressionMessage)]
     [MaxLength(30, ErrorMessage = AttributesErrorMessages.MaxLengthMessage)]
     public string NationalId { get; set; }
 
     [Display(Name = "نوع شرکت")]
-    public CompanyType CompanyType { get; set; }
+    public CompanyType? CompanyType { get; set; }
 
     [Display(Name = "نام فروشگاه")]
+    [PageRemote(PageName = "CreateSeller",
+        PageHandler = "CheckForShopName",
+        HttpMethod = "GET",
+        ErrorMessage = AttributesErrorMessages.RemoteMessage)]
     [Required(ErrorMessage = AttributesErrorMessages.RequiredMessage)]
     [MaxLength(200, ErrorMessage = AttributesErrorMessages.MaxLengthMessage)]
     public string ShopName { get; set; }
@@ -102,7 +106,7 @@ public class CreateSellerViewModel
     [LtrDirectionAttribute]
     [Required(ErrorMessage = AttributesErrorMessages.RequiredMessage)]
     [MaxLength(11, ErrorMessage = AttributesErrorMessages.MaxLengthMessage)]
-    [RegularExpression(@"^0[\d]{10}$",ErrorMessage =AttributesErrorMessages.RegularExpressionMessage)]
+    [RegularExpression(@"^0[\d]{10}$", ErrorMessage = AttributesErrorMessages.RegularExpressionMessage)]
     public string Telephone { get; set; }
 
     [Display(Name = "آدرس وبسایت")]
@@ -127,12 +131,12 @@ public class CreateSellerViewModel
     [LtrDirectionAttribute]
     [Required(ErrorMessage = AttributesErrorMessages.RequiredMessage)]
     [MaxLength(10, ErrorMessage = AttributesErrorMessages.MaxLengthMessage)]
-    [RegularExpression(@"[\d]{10}$",ErrorMessage =AttributesErrorMessages.RegularExpressionMessage)]
+    [RegularExpression(@"[\d]{10}$", ErrorMessage = AttributesErrorMessages.RegularExpressionMessage)]
     public string PostalCode { get; set; }
 
     public List<SelectListItem> Provinces { get; set; }
 
     [Display(Name = "قوانین و قرارداد را به صورت کامل خوانده و قبول دارم")]
-    [Range(typeof(bool),"true","true",ErrorMessage = "شما باید قوانین و مقررات را تایید نمایید")]
+    [Range(typeof(bool), "true", "true", ErrorMessage = "شما باید قوانین و مقررات را تایید نمایید")]
     public bool AcceptTerms { get; set; }
 }

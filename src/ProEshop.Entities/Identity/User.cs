@@ -24,7 +24,7 @@ public class User : IdentityUser<long>, IAuditableEntity
     public DateTime CreatedDateTime { get; set; }
 
     [Display(Name = "کد ملی")]
-    [MaxLength(11)]
+    [MaxLength(10)]
     public string NationalCode { get; set; }
 
     [Display(Name = "تاریخ تولد")]
@@ -53,7 +53,7 @@ public class User : IdentityUser<long>, IAuditableEntity
 }
 
 
-public enum Gender
+public enum Gender : byte
 {
     [Display(Name = "مرد")]
     Male,

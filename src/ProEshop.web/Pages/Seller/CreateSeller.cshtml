@@ -5,7 +5,7 @@
 }
 
 <div class="container" id="create-seller-container">
-    <form asp-page="./CreateSeller">
+    <form asp-page="./CreateSeller" enctype="multipart/form-data">
         <input asp-for="CreateSeller.PhoneNumber" />
         <div class="card mt-5">
             <div class="card-header">
@@ -73,7 +73,9 @@
                                     </div>
                                     <div class="mb-3 col-md-6 col-lg-3">
                                         <label class="form-label" asp-for="CreateSeller.CompanyType"></label>
-                                        <select class="form-select" asp-for="CreateSeller.CompanyType" asp-items="Html.GetEnumSelectList<ProEShop.Entities.CompanyType>()"></select>
+                                        <select class="form-select" asp-for="CreateSeller.CompanyType" asp-items="Html.GetEnumSelectList<ProEShop.Entities.CompanyType>()">
+                                            <option value="-1">انتخاب کنید</option>
+                                        </select>
                                         <span asp-validation-for="CreateSeller.CompanyType" class="span-error-message"></span>
                                     </div>
                                 </div>
@@ -170,6 +172,7 @@
                             <div class="card-body">
                                 <div class="mb-3">
                                     <label class="form-label" asp-for="CreateSeller.IdCartPicture"></label>
+                                    <i class="bi bi-question-circle" data-bs-toggle="tooltip" data-bs-html="true" title="تصویر کارت ملی باید بصورت کاملا واضح باشد <img src='/images/application/Id-Card-Sample.png' width='150'>" ></i>
                                     <input image-preview-box="id-cart-image-preview-box-create-seller" class="form-control image-preview-input" asp-for="CreateSeller.IdCartPicture" />
                                     <span asp-validation-for="CreateSeller.IdCartPicture" class="span-error-message"></span>
                                 </div>

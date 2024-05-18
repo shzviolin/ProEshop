@@ -1,4 +1,4 @@
-﻿$('#legal-person-checkbox-create-seller').change(function () {
+﻿$('#legal-person-checkbox-create-seller').on('change', function () {
     var labelElement = $(this).parents('.form-switch').find('label');
     if (this.checked) {
         addRequiredRule('#CreateSeller_CompanyName');
@@ -6,6 +6,7 @@
         addRequiredRule('#CreateSeller_EconomicCode');
         addRequiredRule('#CreateSeller_SignatureOwners');
         addRequiredRule('#CreateSeller_NationalId');
+        addRangeRule('#CreateSeller_companyType');
         labelElement.html('شخص حقوقی');
     }
     else {
@@ -14,7 +15,7 @@
         removeRequiredRule('#CreateSeller_EconomicCode');
         removeRequiredRule('#CreateSeller_SignatureOwners');
         removeRequiredRule('#CreateSeller_NationalId');
-
+        removeRangeRule('#CreateSeller_CompanyType');
         labelElement.html('شخص حقیقی');
     }
     $(this).parents('form').valid();
@@ -24,22 +25,35 @@
 $('#legal-person-box-create-seller').hide(0);
 
 function addRequiredRule(selector) {
-    var labelElement = $(selector).parent().find('label');
-    var displayName = labelElement.length > 0 ? labelElement.html().trim() : $(selector).attr('name');
+    var displayName = $(selector).parent().find('label').html().trim();
     $(selector).rules('add', {
         required: true,
         messages: {
-            required: `لطفا ${displayName} را وارد نمایید`,
+            required: `لطفا ${displayName} را وارد نمایید`
+        }
+    });
+}
+
+function removeRequiredRule(selector) {
+    $(selector).rules('remove', 'required');
+}
+
+function addRangeRule(selector) {
+    var labelElement = $(selector).parent().find('label');
+    var displayName = labelElement.length > 0 ? labelElement.html().trim() : '';
+    $(selector).rules('add', {
+        range: [0, 4],
+        messages: {
+            range: `لطفا ${displayName} را وارد نمایید`
         }
     });
 }
 
 
-function removeRequiredRule(selector) {
-    var labelElement = $(selector).parent().find('label');
-    var displayName = labelElement.length > 0 ? labelElement.html().trim() : $(selector).attr('name');
-    $(selector).rules('remove', 'required');
+function removeRangeRule(selector) {
+    $(selector).rules('remove', 'range');
 }
+
 
 var firstTab = $('#create-seller-container .nav-tabs button:first').attr('data-bs-target');
 var lastTab = $('#create-seller-container .nav-tabs button:last').attr('data-bs-target');
@@ -47,14 +61,14 @@ $('#create-seller-container #previous-tab-create-seller').attr('disabled', 'disa
 
 var currentTab = $('#create-seller-container .nav-tabs button:first').attr('data-bs-target');
 
-$('#create-seller-container #next-tab-create-seller').click(function () {
+$('#create-seller-container #next-tab-create-seller').on('click', function () {
     var nextTab = $(`#create-seller-container .nav-tabs button[data-bs-target="${currentTab}"]`).next();
     if (nextTab.attr('data-bs-target')) {
         currentTab = nextTab.attr('data-bs-target');
         nextTab.tab('show');
     }
 });
-$('#create-seller-container #previous-tab-create-seller').click(function () {
+$('#create-seller-container #previous-tab-create-seller').on('click', function () {
     var previousTab = $(`#create-seller-container .nav-tabs button[data-bs-target="${currentTab}"]`).prev();
     if (previousTab.attr('data-bs-target')) {
         currentTab = previousTab.attr('data-bs-target');
@@ -78,7 +92,7 @@ $('#create-seller-container .nav-tabs button').on('show.bs.tab', function (e) {
     }
 });
 
-$('#CreateSeller_ProvinceId').change(function () {
+$('#CreateSeller_ProvinceId').on('change', function () {
     var formData = {
         provinceId: $(this).val(),
     }
