@@ -206,7 +206,7 @@ function activaitingDeleteButtons() {
 
                 showLoading();
                 $.post(currentForm.attr('action'), formData, function (data, status) {
-                    if (data.isSuccessful == false) {
+                    if (data.isSuccessful === false) {
                         showToastr('warning', data.message);
                     }
                     else {
@@ -245,7 +245,7 @@ function activatingModalForm() {
         $('#form-modal-place .modal-header h5').html(customTitle);
         showLoading();
         $.get(urlToLoadForm, function (data, status) {
-            if (data.isSuccessful == false) {
+            if (data.isSuccessful === false) {
                 showToastr('warning', data.message);
             }
             else {
@@ -325,7 +325,7 @@ $(document).on('submit', 'form.custom-ajax-form', function (e) {
             currentForm.find('.submit-custom-ajax-button').attr('disabled', 'disabled');
         },
         success: function (data, status) {
-            if (data.isSuccessful == false) {
+            if (data.isSuccessful === false) {
                 fillValidationForm(data.data, currentForm);
                 showToastr('warning', data.message);
             }
@@ -368,7 +368,7 @@ $(document).on('submit', 'form.public-ajax-form', function (e) {
             showLoading();
         },
         success: function (data, status) {
-            if (data.isSuccessful == false) {
+            if (data.isSuccessful === false) {
                 //var finalData = data.data != null ? data.data : [data.message];
                 var finalData = data.data || [data.message];
                 fillValidationForm(finalData, currentForm);
@@ -425,7 +425,7 @@ $(document).on('submit', 'form.search-form-via-ajax', function (e) {
         $('.data-table-loading').addClass('d-none');
 
         if (status == 'success') {
-            if (data.isSuccessful == false) {
+            if (data.isSuccessful === false) {
                 fillValidationForm(data.data, currentForm);
                 showToastr('warning', data.message);
             }
@@ -457,6 +457,7 @@ function fillValidationForm(errors, currentForm) {
     currentForm.find('div[class*="validation-summary"]').html(result);
 }
 
+
 // End Ajax operations
 
 $('input[data-val-ltrdirection="true"]').attr('dir', 'ltr');
@@ -475,3 +476,31 @@ $('.image-preview-input').change(function () {
         $(`#${imagePreviewBox}`).addClass('d-none');
     }
 });
+
+function getDataWithAJAX(url, formData, functionNameToCallAtTheEnd) {
+    $.ajax({
+        url: url,
+        data: formData,
+        type: 'Get',
+        enctype: 'multipart/form-data',
+        dataType: 'json',
+        contentType: false,
+        beforeSend: function () {
+            showLoading();
+        },
+        success: function (data, status) {
+            if (data.isSuccessful === false) {
+                showToastr('warning', data.message);
+            }
+            else {
+                window[functionNameToCallAtTheEnd](data.message, data.data);
+            }
+        },
+        complete: function () {
+            hideLoading();
+        },
+        error: function () {
+            showErrorMessage();
+        }
+    });
+}
