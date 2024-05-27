@@ -106,3 +106,11 @@ function putCitiesInTheSelectBox(message, data) {
         $('#CreateSeller_CityId').append(`<option value="${key}">${value}</option>`);
     });
 }
+
+const dtp1Instance = new mds.MdsPersianDateTimePicker(document.getElementById('birthdate-icon-create-seller'), {
+    targetTextSelector: '#CreateSeller_BirthDate',
+    persianNumber: true,
+    selectedDate: new Date($('#CreateSeller_BirthDate').attr('birthdate-english') || new Date()),
+    selectedDateToShow: new Date($('#CreateSeller_BirthDate').attr('birthdate-english') || new Date()),
+    //targetDateSelector: '[data-name="dtp1-date"]',
+});

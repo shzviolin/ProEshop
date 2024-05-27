@@ -28,7 +28,7 @@ public class User : IdentityUser<long>, IAuditableEntity
     public string NationalCode { get; set; }
 
     [Display(Name = "تاریخ تولد")]
-    public DateTime BirthDate { get; set; }
+    public DateTime? BirthDate { get; set; }
 
     [Display(Name = "جنسیت")]
     public Gender Gender { get; set; }

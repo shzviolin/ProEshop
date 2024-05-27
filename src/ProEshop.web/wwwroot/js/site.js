@@ -402,6 +402,10 @@ $('form input').on('blur', function () {
     $(this).parents('form').valid();
 });
 
+$('form select').on('change', function () {
+    $(this).parents('form').valid();
+});
+
 // این فانکشن هر فرمی را به صورت پست به سمت سرور با استفاده از ایجکس
 // ارسال میکند
 $(document).on('submit', 'form.public-ajax-form', function (e) {

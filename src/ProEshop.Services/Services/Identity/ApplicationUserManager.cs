@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using AutoMapper;
+using DNTPersianUtils.Core;
+using MD.PersianDateTime.Standard;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -6,6 +9,8 @@ using Microsoft.Extensions.Options;
 using ProEShop.DataLayer.Context;
 using ProEShop.Entities.Identity;
 using ProEShop.Services.Contracts.Identity;
+using ProEShop.ViewModels.Sellers;
+using System.Net.WebSockets;
 
 namespace ProEShop.Services.Services.Identity;
 
@@ -13,6 +18,7 @@ public class ApplicationUserManager
     : UserManager<User>, IApplicationUserManager
 {
     private readonly DbSet<User> _users;
+    private readonly IMapper _mapper;
 
     public ApplicationUserManager(
         IApplicationUserStore store,
@@ -24,7 +30,7 @@ public class ApplicationUserManager
         IdentityErrorDescriber errors,
         IServiceProvider services,
         ILogger<ApplicationUserManager> logger,
-        IUnitOfWork uow)
+        IUnitOfWork uow, IMapper mapper)
         : base(
             (UserStore<User, Role, ApplicationDbContext, long, UserClaim, UserRole, UserLogin, UserToken,
                 RoleClaim>)store,
@@ -32,6 +38,7 @@ public class ApplicationUserManager
             keyNormalizer, errors, services, logger)
     {
         _users = uow.Set<User>();
+        _mapper = mapper;
     }
 
 
@@ -53,6 +60,23 @@ public class ApplicationUserManager
         return await _users.Where(x => x.UserName == phoneNumber)
             .Where(x => x.UserRoles.All(r => r.Role.Name != ConstantRoles.Seller))
             .AnyAsync(x => x.IsSeller);
+    }
+
+    public async Task<CreateSellerViewModel> GetUserInfoForCreateSeller(string phoneNumber)
+    {
+        var result = await _mapper.ProjectTo<CreateSellerViewModel>(_users)
+            .SingleOrDefaultAsync(x => x.PhoneNumber == phoneNumber);
+        if (result.BirthDate != null)
+        {
+            var parsedDateTime = DateTime.Parse(result.BirthDate);
+            var persianDateTime = new MD.PersianDateTime.Standard.PersianDateTime(parsedDateTime)
+            {
+                PersianNumber = true
+            };
+            result.BirthDateEnglish = parsedDateTime.ToString("yyyy/MM/dd");
+            result.BirthDate = persianDateTime.ToShortDateString();
+        }
+        return result;
     }
 
     #endregion

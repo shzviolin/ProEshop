@@ -1,8 +1,10 @@
+using AutoMapper;
 using DNTCommon.Web.Core;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.WebEncoders;
 using ProEShop.IocConfig;
 using ProEShop.ViewModels.Identity.Settings;
+using ProEShop.Web.Mappings;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
 
@@ -19,6 +21,16 @@ builder.Services.Configure<WebEncoderOptions>(options =>
 {
     options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.All);
 });
+
+// Auto Mapper Configurations
+var mapperConfig = new MapperConfiguration(mc =>
+{
+    mc.AddProfile(new MappingProfile());
+});
+
+IMapper mapper = mapperConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
+
 
 var app = builder.Build();
 app.Services.InitializeDb();

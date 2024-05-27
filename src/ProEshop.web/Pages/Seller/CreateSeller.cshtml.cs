@@ -2,12 +2,15 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ProEShop.Common;
+using ProEShop.Common.Constants;
 using ProEShop.Common.Helpers;
 using ProEShop.Entities;
 using ProEShop.Entities.Identity;
 using ProEShop.Services.Contracts;
 using ProEShop.Services.Contracts.Identity;
+using ProEShop.ViewModels;
 using ProEShop.ViewModels.Sellers;
+using System.ComponentModel.DataAnnotations;
 
 namespace ProEShop.Web.Pages.Seller;
 
@@ -31,6 +34,17 @@ public class CreateSellerModel : PageBase
     #endregion
 
     [BindProperty]
+    [Display(Name = "نام فروشگاه")]
+    [PageRemote(PageName = "CreateSeller",
+    PageHandler = "CheckForShopName",
+    HttpMethod = "POST",
+    AdditionalFields = ViewModelConstants.AntiForgeryToken,
+    ErrorMessage = AttributesErrorMessages.RemoteMessage)]
+    [Required(ErrorMessage = AttributesErrorMessages.RequiredMessage)]
+    [MaxLength(200, ErrorMessage = AttributesErrorMessages.MaxLengthMessage)]
+    public string ShopName { get; set; }
+
+    [BindProperty]
     public CreateSellerViewModel CreateSeller { get; set; }
         = new();
 
@@ -42,6 +56,7 @@ public class CreateSellerModel : PageBase
         }
 
         CreateSeller.PhoneNumber = phoneNumber;
+        CreateSeller = await _userManager.GetUserInfoForCreateSeller(phoneNumber);
         var provinces = await _provinceAndCityService.GetProvincesToShowInSelectBoxAsync();
         CreateSeller.Provinces = provinces.CreateSelectListItem();
         return Page();
@@ -78,8 +93,8 @@ public class CreateSellerModel : PageBase
         });
     }
 
-    public async Task<IActionResult> OnGetCheckForShopName(CreateSellerViewModel createSeller)
+    public async Task<IActionResult> OnPostCheckForShopName(string shopName)
     {
-        return Json(!await _sellerService.IsExistsBy(nameof(Entities.Seller.ShopName), createSeller.ShopName));
+        return Json(!await _sellerService.IsExistsBy(nameof(Entities.Seller.ShopName), shopName));
     }
 }

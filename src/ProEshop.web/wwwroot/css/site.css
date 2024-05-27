@@ -5,6 +5,9 @@
     font-weight: normal;
     font-style: normal;
 }
+.pointer-cursor{
+    cursor:pointer;
+}
 
 * {
     font-family: Vazir, tahoma;

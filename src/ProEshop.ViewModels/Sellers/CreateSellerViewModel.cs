@@ -32,6 +32,7 @@ public class CreateSellerViewModel
     [LtrDirectionAttribute]
     [Required(ErrorMessage = AttributesErrorMessages.RequiredMessage)]
     public string BirthDate { get; set; }
+    public string BirthDateEnglish { get; set; }
 
     [Display(Name = "جنسیت")]
     public Gender Gender { get; set; }
@@ -70,14 +71,6 @@ public class CreateSellerViewModel
     [Display(Name = "نوع شرکت")]
     public CompanyType? CompanyType { get; set; }
 
-    [Display(Name = "نام فروشگاه")]
-    [PageRemote(PageName = "CreateSeller",
-        PageHandler = "CheckForShopName",
-        HttpMethod = "GET",
-        ErrorMessage = AttributesErrorMessages.RemoteMessage)]
-    [Required(ErrorMessage = AttributesErrorMessages.RequiredMessage)]
-    [MaxLength(200, ErrorMessage = AttributesErrorMessages.MaxLengthMessage)]
-    public string ShopName { get; set; }
 
     [Display(Name = "درباره فروشگاه")]
     public string AboutSeller { get; set; }

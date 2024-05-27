@@ -92,7 +92,12 @@
                                 </div>
                                 <div class="mb-3 col-md-6 col-lg-3">
                                     <label class="form-label" asp-for="CreateSeller.BirthDate"></label>
-                                    <input class="form-control" asp-for="CreateSeller.BirthDate" />
+                                    <div class="input-group">
+                                        <input readonly="readonly" birthdate-english="@Model.CreateSeller.BirthDateEnglish" class="form-control" asp-for="CreateSeller.BirthDate" />
+                                        <span class="input-group-text">
+                                            <i id="birthdate-icon-create-seller" class="bi bi-calendar-date-fill pointer-cursor"></i>
+                                        </span>
+                                    </div>
                                     <span asp-validation-for="CreateSeller.BirthDate" class="span-error-message"></span>
                                 </div>
                                 <div class="mb-3 col-md-6 col-lg-3">
@@ -105,9 +110,9 @@
                                     <select class="form-select" asp-for="CreateSeller.Gender" asp-items="Html.GetEnumSelectList<ProEShop.Entities.Identity.Gender>()"></select>
                                 </div>
                                 <div class="mb-3 col-md-6 col-lg-3">
-                                    <label class="form-label" asp-for="CreateSeller.ShopName"></label>
-                                    <input class="form-control" asp-for="CreateSeller.ShopName" />
-                                    <span asp-validation-for="CreateSeller.ShopName" class="span-error-message"></span>
+                                    <label class="form-label" asp-for="ShopName"></label>
+                                    <input class="form-control" asp-for="ShopName" />
+                                    <span asp-validation-for="ShopName" class="span-error-message"></span>
                                 </div>
                                 <div class="mb-3 col-md-6 col-lg-3">
                                     <label class="form-label" asp-for="CreateSeller.Logo"></label>
@@ -244,6 +249,7 @@
     <script src="~/lib/select2/js/select2.min.js"></script>
     <script src="~/lib/select2/js/i18n/fa.min.js"></script>
     <script src="~/lib/toastr.js/toastr.min.js"></script>
+    <script src="~/lib/md.bootstrappersiandatetimepicker/dist/mds.bs.datetimepicker.min.js"></script>
 }
 
 @section CustomScripts
@@ -255,4 +261,5 @@
     <link href="~/lib/select2/css/select2.min.css" rel="stylesheet" />
     <link href="~/lib/select2-bootstrap-5-theme/select2-bootstrap-5-theme.rtl.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/lib/toastr.js/toastr.min.css" />
+    <link rel="stylesheet" href="~/lib/md.bootstrappersiandatetimepicker/dist/mds.bs.datetimepicker.style.min.css" />
 }
